@@ -12,12 +12,12 @@ void printCommandsInfo(void) {
            "8 - Exit\n");
 }
 
-int readCommand(void){
-    int userInput;
+void getValidCommand(int* command) {
     printf("Choose a command (1-8/ 0 - help): ");
-    scanf("%d", &userInput);
-
-    return userInput;
+    while (scanf("%d", command) == 0 || *command < 0 || *command > 8) {
+        printf("Invalid input. Choose a command (1-8/ 0 - help): ");
+        while (getchar() != '\n');
+    }
 }
 
 void executeCommand(int command){
@@ -46,11 +46,8 @@ void executeCommand(int command){
         case 7:
             printf("The command isn't implemented yet.\n");
             return;
-        case 8:
-            printf("Bye!");
-            return;
         default:
-            printf("The command %d doesn't exist.\n", command);
+            printf("Bye!");
             return;
     }
 }
@@ -58,7 +55,7 @@ void executeCommand(int command){
 int main(void) {
     int command;
     do {
-        command = readCommand();
+        getValidCommand(&command);
         executeCommand(command);
     } while (command != 8);
 
