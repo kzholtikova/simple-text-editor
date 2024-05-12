@@ -1,0 +1,3 @@
+/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/CMakeFiles/simple_text_editor.dir
+/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/CMakeFiles/rebuild_cache.dir
