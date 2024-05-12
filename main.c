@@ -20,21 +20,47 @@ int readCommand(void){
     return userInput;
 }
 
-int GetValidCommand(void) {
-    printCommandsInfo();
-
-    int command = readCommand();
-    while (command < 0 || command > 8) {
-        printf("The command %d doesn't exist.\n", command);
-        command = readCommand();
+void executeCommand(int command){
+    switch (command) {
+        case 0:
+            printCommandsInfo();
+            return;
+        case 1:
+            printf("The command isn't implemented yet.\n");
+            return;
+        case 2:
+            printf("The command isn't implemented yet.\n");
+            return;
+        case 3:
+            printf("The command isn't implemented yet.\n");
+            return;
+        case 4:
+            printf("The command isn't implemented yet.\n");
+            return;
+        case 5:
+            printf("The command isn't implemented yet.\n");
+            return;
+        case 6:
+            printf("The command isn't implemented yet.\n");
+            return;
+        case 7:
+            printf("The command isn't implemented yet.\n");
+            return;
+        case 8:
+            printf("Bye!");
+            return;
+        default:
+            printf("The command %d doesn't exist.\n", command);
+            return;
     }
-
-    return command;
 }
 
 int main(void) {
-    int command = GetValidCommand();
-    printf("%d", command);
+    int command;
+    do {
+        command = readCommand();
+        executeCommand(command);
+    } while (command != 8);
 
     return 0;
 }
