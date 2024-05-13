@@ -13,10 +13,12 @@ void printCommandsInfo(void) {
 }
 
 void getValidCommand(int* command) {
+    char input;
     printf("Choose a command (1-8/ 0 - help): ");
-    while (scanf("%d", command) == 0 || *command < 0 || *command > 8) {
+    while (scanf("%d%c", command, &input) != 2 || input != '\n' || *command < 0 || *command > 8) {
+        if (input != '\n')
+            while (getchar() != '\n');
         printf("Invalid input. Choose a command (1-8/ 0 - help): ");
-        while (getchar() != '\n');
     }
 }
 
