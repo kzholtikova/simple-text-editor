@@ -1,5 +1,20 @@
 #include <stdio.h>
 
+// functions declarations
+void getValidCommand(int* command);
+void executeCommand(int command);
+
+int main(void) {
+    int command;
+    do {
+        getValidCommand(&command);
+        executeCommand(command);
+    } while (command != 8);  // 8 - exit command
+
+    return 0;
+}
+
+// functions definitions
 void printCommandsInfo(void) {
     printf("0 - Help\n"
            "1 - Append to the end\n"
@@ -12,17 +27,20 @@ void printCommandsInfo(void) {
            "8 - Exit\n");
 }
 
+// validate if the input is an integer and is in the range specified
 void getValidCommand(int* command) {
     char input;
     printf("Choose a command (1-8/ 0 - help): ");
     while (scanf("%d%c", command, &input) != 2 || input != '\n' || *command < 0 || *command > 8) {
+        // clear the buffer to get correct new input
         if (input != '\n')
             while (getchar() != '\n');
         printf("Invalid input. Choose a command (1-8/ 0 - help): ");
     }
 }
 
-void executeCommand(int command){
+// call the function related to the command number
+void executeCommand(int command) {
     switch (command) {
         case 0:
             printCommandsInfo();
@@ -48,18 +66,8 @@ void executeCommand(int command){
         case 7:
             printf("The command isn't implemented yet.\n");
             return;
-        default:
+        default:  // exit the program
             printf("Bye!");
             return;
     }
-}
-
-int main(void) {
-    int command;
-    do {
-        getValidCommand(&command);
-        executeCommand(command);
-    } while (command != 8);
-
-    return 0;
 }
