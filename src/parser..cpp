@@ -1,21 +1,8 @@
-#include <stdio.h>
+#include <cstdio>
+#include "../include/parser.h"
 
-// functions declarations
-void getValidCommand(int* command);
-void executeCommand(int command);
-
-int main(void) {
-    int command;
-    do {
-        getValidCommand(&command);
-        executeCommand(command);
-    } while (command != 8);  // 8 - exit command
-
-    return 0;
-}
-
-// functions definitions
-void printCommandsInfo(void) {
+// Functions definitions
+void printCommandsInfo() {
     printf("0 - Help\n"
            "1 - Append to the end\n"
            "2 - New line\n"
@@ -27,7 +14,7 @@ void printCommandsInfo(void) {
            "8 - Exit\n");
 }
 
-// validate if the input is an integer and is in the range specified
+// Validate if the input is an integer and is in the range specified
 void getValidCommand(int* command) {
     char input;
     printf("Choose a command (1-8/ 0 - help): ");
@@ -39,7 +26,7 @@ void getValidCommand(int* command) {
     }
 }
 
-// call the function related to the command number
+// Call the function related to the command number
 void executeCommand(int command) {
     switch (command) {
         case 0:
@@ -66,7 +53,7 @@ void executeCommand(int command) {
         case 7:
             printf("The command isn't implemented yet.\n");
             return;
-        default:  // exit the program
+        default:  // Exit the program
             printf("Bye!");
             return;
     }
