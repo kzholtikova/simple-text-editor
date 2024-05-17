@@ -1,5 +1,6 @@
 #include <cstdio>
 #include "../include/parser.h"
+#include "../include/text_storage.h"
 
 int main(void) {
     int command;

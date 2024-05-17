@@ -55,8 +55,14 @@ build CMakeFiles/simple_text_editor.dir/src/main.cpp.o: CXX_COMPILER__simple_tex
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
 
-build CMakeFiles/simple_text_editor.dir/src/parser..cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/parser..cpp || cmake_object_order_depends_target_simple_text_editor
-  DEP_FILE = CMakeFiles/simple_text_editor.dir/src/parser..cpp.o.d
+build CMakeFiles/simple_text_editor.dir/src/parser.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/parser.cpp || cmake_object_order_depends_target_simple_text_editor
+  DEP_FILE = CMakeFiles/simple_text_editor.dir/src/parser.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/simple_text_editor.dir
+  OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
+
+build CMakeFiles/simple_text_editor.dir/src/text_storage.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/text_storage.cpp || cmake_object_order_depends_target_simple_text_editor
+  DEP_FILE = CMakeFiles/simple_text_editor.dir/src/text_storage.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
@@ -69,7 +75,7 @@ build CMakeFiles/simple_text_editor.dir/src/parser..cpp.o: CXX_COMPILER__simple_
 #############################################
 # Link the executable simple_text_editor
 
-build simple_text_editor: CXX_EXECUTABLE_LINKER__simple_text_editor_Debug CMakeFiles/simple_text_editor.dir/src/main.cpp.o CMakeFiles/simple_text_editor.dir/src/parser..cpp.o
+build simple_text_editor: CXX_EXECUTABLE_LINKER__simple_text_editor_Debug CMakeFiles/simple_text_editor.dir/src/main.cpp.o CMakeFiles/simple_text_editor.dir/src/parser.cpp.o CMakeFiles/simple_text_editor.dir/src/text_storage.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   POST_BUILD = :
