@@ -1,5 +1,6 @@
 #include <cstdio>
 #include "../include/parser.h"
+# include "../include/text_commands.h"
 
 // Functions definitions
 void printCommandsInfo() {
@@ -27,7 +28,7 @@ void getValidCommand(int* command) {
 }
 
 // Call the function related to the command number
-void executeCommand(int command) {
+void executeCommand(int command, LinkedList* pContent) {
     switch (command) {
         case 0:
             printCommandsInfo();
@@ -36,7 +37,8 @@ void executeCommand(int command) {
             printf("The command isn't implemented yet.\n");
             return;
         case 2:
-            printf("The command isn't implemented yet.\n");
+            newLine(pContent);
+            printf("%s", pContent->tail->text);
             return;
         case 3:
             printf("The command isn't implemented yet.\n");
