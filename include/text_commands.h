@@ -5,5 +5,6 @@
 
 char* readText();
 void newLine(LinkedList* pContent);
+void printText(LinkedList* content);
 
 #endif

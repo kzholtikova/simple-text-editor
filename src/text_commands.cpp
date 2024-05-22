@@ -36,3 +36,10 @@ void newLine(LinkedList* pContent) {
     free(pText);
 }
 
+void printText(LinkedList* content) {
+    Line* pCurrentLine = content->head;
+    while (pCurrentLine != nullptr) {
+        printf("%s\n", pCurrentLine->text);
+        pCurrentLine = pCurrentLine->next;
+    }
+}

@@ -47,7 +47,7 @@ void executeCommand(int command, LinkedList* pContent) {
             printf("The command isn't implemented yet.\n");
             return;
         case 5:
-            printf("The command isn't implemented yet.\n");
+            printText(pContent);
             return;
         case 6:
             printf("The command isn't implemented yet.\n");
