@@ -34,11 +34,10 @@ void executeCommand(int command, LinkedList* pContent) {
             printCommandsInfo();
             return;
         case 1:
-            printf("The command isn't implemented yet.\n");
+            appendText(pContent);
             return;
         case 2:
             newLine(pContent);
-            printf("%s", pContent->tail->text);
             return;
         case 3:
             printf("The command isn't implemented yet.\n");

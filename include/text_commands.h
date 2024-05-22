@@ -6,5 +6,6 @@
 char* readText();
 void newLine(LinkedList* pContent);
 void printText(LinkedList* content);
+void appendText(LinkedList* content);
 
-#endif
+#endif //SIMPLE_TEXT_EDITOR_TEXT_COMMANDS_H

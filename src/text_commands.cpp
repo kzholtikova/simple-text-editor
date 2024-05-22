@@ -7,17 +7,18 @@ char* readText() {
     size_t bufferSize = 100; // Initial buffer size
     char *pBuffer = (char*)malloc(bufferSize * sizeof(char));
     char c;
+    size_t currentSize = 0; // Read string size
 
     printf("Enter the text: ");
     while ((c = getchar()) != '\n') {
-        if (strlen(pBuffer) == bufferSize - 1) { // Reallocate memory if needed
+        if (currentSize == bufferSize - 1) { // Reallocate memory if needed
             bufferSize *= 2;
             pBuffer = (char*)realloc(pBuffer, bufferSize * sizeof(char));
         }
-        pBuffer[strlen(pBuffer)] = c; // Append the character to the buffer
+        pBuffer[currentSize++] = c; // Append the character to the buffer
     }
 
-    pBuffer[strlen(pBuffer)] = '\0'; // Add the null terminator
+    pBuffer[currentSize] = '\0'; // Add the null terminator
 
     return pBuffer;
 }
@@ -33,7 +34,7 @@ void newLine(LinkedList* pContent) {
 
     pContent->tail->next = createLine(pText);
     pContent->tail = pContent->tail->next;
-    free(pText);
+    free(pText); // Free memory that's no longer needed
 }
 
 void printText(LinkedList* content) {
@@ -42,4 +43,12 @@ void printText(LinkedList* content) {
         printf("%s\n", pCurrentLine->text);
         pCurrentLine = pCurrentLine->next;
     }
+}
+
+void appendText(LinkedList* content) {
+    char *newText = readText();
+    // Allocate memory for the new text + old text
+    content->tail->text = (char*)realloc(content->tail->text, (strlen(content->tail->text) + strlen(newText) + 1) * sizeof(char));
+    strcat(content->tail->text, newText);
+    free(newText); // Free memory that's no longer needed
 }
