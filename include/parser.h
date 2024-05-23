@@ -5,7 +5,7 @@
 
 // functions declarations
 void printCommandsInfo();
-void getValidCommand(int* command);
+void getValidInput(int* result, int upperBound, const char* prompt);
 void executeCommand(int command, LinkedList* pContent);
 
 #endif // SIMPLE_TEXT_EDITOR_PARSER_H

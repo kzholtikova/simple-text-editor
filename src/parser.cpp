@@ -16,14 +16,17 @@ void printCommandsInfo() {
 }
 
 // Validate if the input is an integer and is in the range specified
-void getValidCommand(int* command) {
+void getValidInput(int* result, int upperBound, const char* prompt) {
     char input;
-    printf("Choose a command (1-8/ 0 - help): ");
-    while (scanf("%d%c", command, &input) != 2 || input != '\n' || *command < 0 || *command > 8) {
+    int status;
+    printf("%s", prompt);
+    while ((status = scanf("%d%c", result, &input)) != 2 || input != '\n' || *result < 0 || *result > upperBound) {
         // clear the buffer to get correct new input
-        if (input != '\n')
+        int res = *result;
+        if (input != '\n' || status != 2)
             while (getchar() != '\n');
-        printf("Invalid input. Choose a command (1-8/ 0 - help): ");
+
+        printf("%s", prompt);
     }
 }
 
@@ -52,7 +55,7 @@ void executeCommand(int command, LinkedList* pContent) {
             printf("The command isn't implemented yet.\n");
             return;
         case 7:
-            printf("The command isn't implemented yet.\n");
+            insertBy(pContent);
             return;
         default:  // Exit the program
             printf("Bye!");
