@@ -11,6 +11,7 @@ typedef struct Line {
 typedef struct LinkedList {
     Line *head;
     Line *tail;
+    int length;
 } LinkedList;
 
 Line* createLine(char* text);
