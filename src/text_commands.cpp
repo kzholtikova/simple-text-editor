@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <cstring>
 #include "../include/text_commands.h"
+#include "../include/parser.h"
 
 char* readText() {
     size_t bufferSize = 100; // Initial buffer size
@@ -29,26 +30,59 @@ void newLine(LinkedList* pContent) {
     if (pContent->head == nullptr) {
         pContent->head = createLine(pText);
         pContent->tail = pContent->head;
+        pContent->length = 1;
         return;
     }
 
     pContent->tail->next = createLine(pText);
     pContent->tail = pContent->tail->next;
+    pContent->length++;
     free(pText); // Free memory that's no longer needed
 }
 
-void printText(LinkedList* content) {
-    Line* pCurrentLine = content->head;
+void printText(LinkedList* pContent) {
+    Line *pCurrentLine = pContent->head;
     while (pCurrentLine != nullptr) {
         printf("%s\n", pCurrentLine->text);
         pCurrentLine = pCurrentLine->next;
     }
+    free(pCurrentLine);
 }
 
-void appendText(LinkedList* content) {
-    char *newText = readText();
-    // Allocate memory for the new text + old text
-    content->tail->text = (char*)realloc(content->tail->text, (strlen(content->tail->text) + strlen(newText) + 1) * sizeof(char));
-    strcat(content->tail->text, newText);
-    free(newText); // Free memory that's no longer needed
+void appendText(LinkedList* pContent) {
+    if (pContent->head == nullptr)
+        newLine(pContent);
+    else {
+        char *newText = readText();
+        // Allocate memory for the new text + old text
+        pContent->tail->text = (char*)realloc(pContent->tail->text, (strlen(pContent->tail->text) + strlen(newText) + 1) * sizeof(char));
+        strcat(pContent->tail->text, newText);
+        free(newText); // Free memory that's no longer needed
+    }
+}
+
+void insertBy(LinkedList* pContent) {
+    if (pContent->length != 0) {
+        int lineIndex;     // Read valid line index and obtain it
+        getValidInput(&lineIndex, pContent->length - 1, (char*)"Enter a line index: ");
+        Line *pLine = pContent->head;
+        for (int i = 0; i < lineIndex; ++i) {
+            pLine = pLine->next;
+        }
+
+        int symbolIndex; // Read valid symbol index
+        getValidInput(&symbolIndex, strlen(pLine->text), (char*)"Enter a symbol index: ");
+        char *pText = readText();
+        // Reallocate memory for the new text
+        int oldLength = strlen(pLine->text);
+        int toInsertLength = strlen(pText);
+        pLine->text = (char*)realloc(pLine->text, (oldLength + toInsertLength + 1) * sizeof(char));
+        // Move rest symbols and insert at the specified index
+        memmove(pLine->text + symbolIndex + toInsertLength, pLine->text + symbolIndex, oldLength - symbolIndex + 1);
+        memcpy(pLine->text + symbolIndex, pText, toInsertLength);
+
+        free(pText);
+    } else {
+        printf("No lines to insert to.\n");
+    }
 }
