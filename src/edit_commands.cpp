@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
-#include "../include/text_commands.h"
+#include "../include/edit_commands.h"
 #include "../include/parser.h"
 
 char* readText() {

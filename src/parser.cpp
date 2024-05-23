@@ -1,6 +1,6 @@
 #include <cstdio>
 #include "../include/parser.h"
-# include "../include/text_commands.h"
+# include "../include/edit_commands.h"
 
 // Functions definitions
 void printCommandsInfo() {
