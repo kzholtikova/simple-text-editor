@@ -47,7 +47,7 @@ void executeCommand(int command, LinkedList* pContent) {
             saveToFile(pContent);
             return;
         case 4:
-            printf("The command isn't implemented yet.\n");
+            loadFromFile(pContent);
             return;
         case 5:
             printText(pContent);

@@ -28,3 +28,32 @@ void saveToFile(LinkedList* pContent) {
     free(pCurrentLine);
     fclose(file);
 }
+
+void loadFromFile(LinkedList* pContent) {
+    FILE* file = openFile("r");
+    if (file == nullptr) {
+        printf("Error opening file.\n");
+        return;
+    }
+
+    char *pLine = nullptr;
+    size_t lineSize = 0;
+    ssize_t length;
+    while ((length = getline(&pLine, &lineSize, file)) != -1) {
+        if (pLine[length - 1] == '\n')
+            pLine[length - 1] = '\0'; // Remove the newline character
+
+        if (pContent->head == nullptr) { // Handle an empty list
+            pContent->head = createLine(pLine);
+            pContent->tail = pContent->head;
+        } else {
+            pContent->tail->next = createLine(pLine);
+            pContent->tail = pContent->tail->next;
+        }
+        pContent->length++;
+    }
+
+    printf("Text has been loaded successfully.\n");
+    free(pLine);
+    fclose(file);
+}
