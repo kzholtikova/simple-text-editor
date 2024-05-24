@@ -1,6 +1,7 @@
 #include <cstdio>
 #include "../include/parser.h"
 # include "../include/edit_commands.h"
+#include "../include/file_commands.h"
 
 // Functions definitions
 void printCommandsInfo() {
@@ -43,7 +44,7 @@ void executeCommand(int command, LinkedList* pContent) {
             newLine(pContent);
             return;
         case 3:
-            printf("The command isn't implemented yet.\n");
+            saveToFile(pContent);
             return;
         case 4:
             printf("The command isn't implemented yet.\n");

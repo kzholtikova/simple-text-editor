@@ -8,6 +8,8 @@ add_executable(simple_text_editor src/main.cpp
         src/parser.cpp
         src/text_storage.cpp
         src/edit_commands.cpp
+        src/file_commands.cpp
+        include/file_commands.h
 )
 
 # Add Google Test to the project
