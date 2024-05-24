@@ -29,7 +29,6 @@ TEST_F(EditCommandsTest, NewLineToEmptyList) {
     setInput("Hello, world!\n");
     redirectStdout();
     newLine(list);
-    resetInput();
     resetStdout();
 
     ASSERT_EQ(list->length, 1);
@@ -45,7 +44,6 @@ TEST_F(EditCommandsTest, NewLineToNonEmptyList) {
     setInput("New line\n");
     redirectStdout();
     newLine(list);
-    resetInput();
     resetStdout();
 
     ASSERT_EQ(list->length, 2);
@@ -57,7 +55,6 @@ TEST_F(EditCommandsTest, AppendTextToEmptyList) {
     setInput("Hello World!\n");
     redirectStdout();
     newLine(list);
-    resetInput();
     resetStdout();
 
     ASSERT_EQ(list->length, 1);
@@ -69,13 +66,11 @@ TEST_F(EditCommandsTest, AppendTextToNonEmptyList) {
     setInput("Hello\n");
     redirectStdout();
     newLine(list);
-    resetInput();
     resetStdout();
 
     setInput(" World!\n");
     redirectStdout();
     appendText(list);
-    resetInput();
     resetStdout();
 
     ASSERT_EQ(list->length, 1);
@@ -88,19 +83,16 @@ TEST_F(EditCommandsTest, InsertByCorrectPosition) {
     redirectStdout();
     newLine(list);
     resetStdout();
-    resetInput();
 
     setInput("Line 2\n");
     redirectStdout();
     newLine(list);
     resetStdout();
-    resetInput();
 
     setInput("0\n5\nInserted Text\n");
     redirectStdout();
     insertBy(list);
     resetStdout();
-    resetInput();
 
     ASSERT_EQ(list->length, 2);
     ASSERT_NE(list->head, nullptr);
@@ -114,7 +106,6 @@ TEST_F(EditCommandsTest, InsertByToEmptyList) {
     redirectStdout();
     insertBy(list);
     resetStdout();
-    resetInput();
 
     ASSERT_EQ(list->length, 0);
 }
@@ -124,13 +115,11 @@ TEST_F(EditCommandsTest, PrintText) {
     redirectStdout();
     newLine(list);
     resetStdout();
-    resetInput();
 
     setInput("Line 2\n");
     redirectStdout();
     newLine(list);
     resetStdout();
-    resetInput();
 
     std::string output = captureStdout(printText, list);
     std::string expectedOutput = "Line 1\nLine 2\n";

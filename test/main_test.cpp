@@ -1,6 +1,10 @@
 #include <gtest/gtest.h>
 #include "../include/parser.h"
 #include <fstream>
+#include <unistd.h>
+#include <fcntl.h>
+
+int original_stdout;
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
@@ -15,18 +19,14 @@ void setInput(const std::string& input) {
     freopen("input.txt", "r", stdin);
 }
 
-// Utility function to reset stdin
-void resetInput() {
-    freopen("/dev/tty", "r", stdin);  // Reset stdin
-    remove("input.txt");
-}
-
 // Utility function to capture stdout
 std::string captureStdout(void (*func)(LinkedList*), LinkedList* list) {
+    int original_stdout = dup(fileno(stdout));
     freopen("output.txt", "w", stdout);
     func(list);
     fflush(stdout);  // Ensure all output is flushed
-    freopen("/dev/tty", "w", stdout);  // Reset stdout
+    dup2(original_stdout, fileno(stdout));  // Reset stdout
+    close(original_stdout);
 
     std::ifstream output_file("output.txt");
     std::stringstream buffer;
@@ -39,11 +39,14 @@ std::string captureStdout(void (*func)(LinkedList*), LinkedList* list) {
 
 // Utility function to redirect stdout to a file
 void redirectStdout() {
+    original_stdout = dup(fileno(stdout));
     freopen("stdout.txt", "w", stdout);
 }
 
-// Utility function to reset stdout
+// Utility function to reset stdoutvoid
 void resetStdout() {
-    freopen("/dev/tty", "w", stdout);
+    fflush(stdout);
+    dup2(original_stdout, fileno(stdout));
+    close(original_stdout);
     remove("stdout.txt");
 }
