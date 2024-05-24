@@ -4,9 +4,10 @@
 
 int main(void) {
     int command;
+    LinkedList *pContent = new LinkedList();
     do {
-        getValidCommand(&command);
-        executeCommand(command);
+        getValidInput(&command, 8, (char*)"Choose a command (0-8): ");
+        executeCommand(command, pContent);
     } while (command != 8);  // 8 - exit command
 
     return 0;

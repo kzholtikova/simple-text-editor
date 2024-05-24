@@ -1,5 +1,6 @@
 #include <cstdio>
 #include "../include/parser.h"
+# include "../include/edit_commands.h"
 
 // Functions definitions
 void printCommandsInfo() {
@@ -15,28 +16,31 @@ void printCommandsInfo() {
 }
 
 // Validate if the input is an integer and is in the range specified
-void getValidCommand(int* command) {
+void getValidInput(int* result, int upperBound, const char* prompt) {
     char input;
-    printf("Choose a command (1-8/ 0 - help): ");
-    while (scanf("%d%c", command, &input) != 2 || input != '\n' || *command < 0 || *command > 8) {
+    int status;
+    printf("%s", prompt);
+    while ((status = scanf("%d%c", result, &input)) != 2 || input != '\n' || *result < 0 || *result > upperBound) {
         // clear the buffer to get correct new input
-        if (input != '\n')
+        int res = *result;
+        if (input != '\n' || status != 2)
             while (getchar() != '\n');
-        printf("Invalid input. Choose a command (1-8/ 0 - help): ");
+
+        printf("%s", prompt);
     }
 }
 
 // Call the function related to the command number
-void executeCommand(int command) {
+void executeCommand(int command, LinkedList* pContent) {
     switch (command) {
         case 0:
             printCommandsInfo();
             return;
         case 1:
-            printf("The command isn't implemented yet.\n");
+            appendText(pContent);
             return;
         case 2:
-            printf("The command isn't implemented yet.\n");
+            newLine(pContent);
             return;
         case 3:
             printf("The command isn't implemented yet.\n");
@@ -45,13 +49,13 @@ void executeCommand(int command) {
             printf("The command isn't implemented yet.\n");
             return;
         case 5:
-            printf("The command isn't implemented yet.\n");
+            printText(pContent);
             return;
         case 6:
             printf("The command isn't implemented yet.\n");
             return;
         case 7:
-            printf("The command isn't implemented yet.\n");
+            insertBy(pContent);
             return;
         default:  // Exit the program
             printf("Bye!");
