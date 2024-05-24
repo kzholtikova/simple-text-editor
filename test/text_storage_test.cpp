@@ -14,7 +14,7 @@ protected:
     }
 };
 
-TEST_F(LineTest, createLine_WithValidText_ReturnsLineWithText) {
+TEST_F(LineTest, CreateLineWithValidText) {
 text = "Hello, world!";
 line = createLine(text);
 
@@ -23,7 +23,7 @@ EXPECT_STREQ(line->text, text);
 EXPECT_EQ(line->next, nullptr);
 }
 
-TEST_F(LineTest, createLine_WithEmptyText_ReturnsLineWithEmptyText) {
+TEST_F(LineTest, CreateLineWithEmptyText) {
 text = "";
 line = createLine(text);
 
@@ -32,16 +32,11 @@ EXPECT_STREQ(line->text, text);
 EXPECT_EQ(line->next, nullptr);
 }
 
-TEST_F(LineTest, createLine_WithNullText_ReturnsLineWithNullText) {
+TEST_F(LineTest, CreateLineWithNullText) {
 text = nullptr;
 line = createLine(text);
 
 ASSERT_NE(line, nullptr);
 EXPECT_EQ(line->text, nullptr);
 EXPECT_EQ(line->next, nullptr);
-}
-
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }
