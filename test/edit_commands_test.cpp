@@ -2,28 +2,7 @@
 #include "../include/main_test.h"
 #include "../include/edit_commands.h"
 
-class EditCommandsTest : public ::testing::Test {
-protected:
-    LinkedList *list;
-
-    void SetUp() override {
-        list = (LinkedList*)malloc(sizeof(LinkedList));
-        list->head = nullptr;
-        list->tail = nullptr;
-        list->length = 0;
-    }
-
-    void TearDown() override {
-        Line *current = list->head;
-        while (current != nullptr) {
-            Line *next = current->next;
-            free(current->text);
-            free(current);
-            current = next;
-        }
-        free(list);
-    }
-};
+class EditCommandsTest : public CommandsTest {};
 
 TEST_F(EditCommandsTest, NewLineToEmptyList) {
     setInput("Hello, world!\n");

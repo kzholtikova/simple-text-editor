@@ -2,6 +2,7 @@
 #include "../include/parser.h"
 # include "../include/edit_commands.h"
 #include "../include/file_commands.h"
+#include "../include/additional_commands.h"
 
 // Functions definitions
 void printCommandsInfo() {
@@ -53,7 +54,7 @@ void executeCommand(int command, LinkedList* pContent) {
             printText(pContent);
             return;
         case 6:
-            printf("The command isn't implemented yet.\n");
+            search(pContent);
             return;
         case 7:
             insertBy(pContent);
