@@ -10,6 +10,8 @@ add_executable(simple_text_editor src/main.cpp
         src/edit_commands.cpp
         src/file_commands.cpp
         include/file_commands.h
+        src/additional_commands.cpp
+        include/additional_commands.h
 )
 
 # Add Google Test to the project
