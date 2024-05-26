@@ -163,3 +163,9 @@ CSAPP – Computer Systems A Programming Perspective book
 6. Virtual memory: 1.7.3
 7. Files: CSAPP 1.7.4
 8. File opening/writing/closing API in C: https://cplusplus.com/reference/cstdio/fopen/
+
+## Test plan
+`help` `append` `new line` `print` `append` `insert` `print` `save` `exit` `help` `load` `print` `search` `insert by` `print` `exit`
+
+[![Testing](https://github.com/kzholtikova/simple-text-editor/assets/145042018/8e4f81b4-c690-4607-9be6-ad5471e665fa)](
+https://github.com/kzholtikova/simple-text-editor/assets/145042018/2f7593e7-6033-47b1-aef0-67de7c64f60b)
