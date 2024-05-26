@@ -11,7 +11,7 @@ char* readText() {
     size_t currentSize = 0; // Read string size
 
     printf("Enter the text: ");
-    while ((c = getchar()) != '\n') {
+    while ((c = getchar()) != '\n' && c != EOF) {
         if (currentSize == bufferSize - 1) { // Reallocate memory if needed
             bufferSize *= 2;
             pBuffer = (char*)realloc(pBuffer, bufferSize * sizeof(char));

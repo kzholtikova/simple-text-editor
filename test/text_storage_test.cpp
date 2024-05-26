@@ -1,10 +1,16 @@
 #include <gtest/gtest.h>
 #include "../include/text_storage.h"
+#include "../include/main_test.h"
 
-class LineTest : public ::testing::Test {
+class LineTest : public CommandsTest {
 protected:
     char* text;
     Line* line;
+
+    void SetUp() override {
+        text = nullptr;
+        line = nullptr;
+    }
 
     void TearDown() override {
         if (line != nullptr) {

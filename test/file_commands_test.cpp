@@ -2,18 +2,7 @@
 #include "../include/main_test.h"
 #include "../include/file_commands.h"
 
-class FileCommandsTest : public ::testing::Test {
-protected:
-    LinkedList* list;
-
-    void SetUp() override {
-        list = new LinkedList();
-    }
-
-    void TearDown() override {
-        delete list;
-    }
-};
+class FileCommandsTest : public CommandsTest {};
 
 TEST_F(FileCommandsTest, OpenFileWithValidMode) {
     setInput("testFile.txt");
@@ -48,7 +37,7 @@ TEST_F(FileCommandsTest, SaveToFile) {
     resetStdout();
 
     // Open the file and check its contents
-    FILE* file = fopen("output.txt", "r");
+    FILE* file = fopen("testFile.txt", "r");
     char line[100];
     fgets(line, 100, file);
     ASSERT_STREQ(line, "Line 1\n");

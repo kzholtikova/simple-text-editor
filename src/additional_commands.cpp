@@ -29,6 +29,6 @@ void search(LinkedList* pContent) {
     }
 
     if (!found)
-        printf("'%s' not found\n", pPattern);
+        printf("'%s' is not found\n", pPattern);
     free(pPattern);
 }

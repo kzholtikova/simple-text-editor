@@ -2,7 +2,8 @@
 #include "../include/parser.h"
 #include <fstream>
 #include <unistd.h>
-#include <fcntl.h>
+#include "../include/file_commands.h"
+#include "../include/main_test.h"
 
 int original_stdout;
 
