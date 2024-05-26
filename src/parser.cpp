@@ -54,10 +54,10 @@ void executeCommand(int command, LinkedList* pContent) {
             printText(pContent);
             return;
         case 6:
-            search(pContent);
+            insertBy(pContent);
             return;
         case 7:
-            insertBy(pContent);
+            search(pContent);
             return;
         default:  // Exit the program
             printf("Bye!");
