@@ -1,23 +1,22 @@
 #include <iostream>
 #include "../include/application.h"
-#include "../include/additional_commands.h"
 #include "../include/edit_commands.h"
 #include "../include/file_commands.h"
 
 void Application::printCommandsInfo() {
-    printf("0 - Help\n"
-           "1 - Append to the end\n"
-           "2 - New line\n"
-           "3 - Save into the file\n"
-           "4 - Load from the file\n"
-           "5 - Print current text\n"
-           "6 - Insert by line and index\n"
-           "7 - Search\n"
-           "8 - Exit\n");
+    std::cout << "0 - Help\n"
+              << "1 - Append to the end\n"
+              << "2 - New line\n"
+              << "3 - Save into the file\n"
+              << "4 - Load from the file\n"
+              << "5 - Print current text\n"
+              << "6 - Insert by line and index\n"
+              << "7 - Search\n"
+              << "8 - Exit\n";
 }
 
 void  Application::clearConsole() {
-    printf("\e[1;1H\e[2J"); // RegEx using ANSI escape codes
+    std::cout << "\e[1;1H\e[2J"; // RegEx using ANSI escape codes
 }
 
 // Call the function related to the command number
@@ -27,35 +26,40 @@ void  Application::executeCommand() {
             printCommandsInfo();
             return;
         case 1:
-            appendText(content);
+            Editor::appendText(content, Parser::readText());
             return;
         case 2:
-            newLine(content);
+            Editor::newLine(content, Parser::readText());
             return;
         case 3:
-            saveToFile(content);
+            FileHandler::saveToFile(content, Parser::readText());
             return;
         case 4:
-            loadFromFile(content);
+            FileHandler::loadFromFile(content, Parser::readText());
             return;
         case 5:
-            printText(content);
+            Editor::printText(content);
             return;
         case 6:
-            insertBy(content);
+            Editor::insertBy(content, Parser::readInteger("Enter a line index: "),
+                             Parser::readInteger("Enter a char index: "), Parser::readText());
             return;
         case 7:
-            search(content);
+            Editor::search(content, Parser::readText());
             return;
-        default:  // Exit the program
-            printf("Bye!");
+        case 8: // Exit
+            std::cout << "Bye!";
+            return;
+        default:
+            std::cout << "No such command.\n";
+            printCommandsInfo();
             return;
     }
 }
 
 void Application::run() {
     do {
-        Parser::getValidInput(&command, 8, (char*)"Choose a command (0-8): ");
+        command = Parser::readInteger("Choose a command (0-8): ");
         clearConsole();
         executeCommand();
     } while (command != 8);  // 8 - exit command

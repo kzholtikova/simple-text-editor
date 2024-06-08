@@ -4,11 +4,11 @@
 
 class Application {
 public:
-    LinkedList* content = new LinkedList();;
-    int command;
-
     static void printCommandsInfo();
     static void clearConsole();
     void executeCommand();
     void run();
+private:
+    LinkedList* content = new LinkedList();;
+    int command;
 };
