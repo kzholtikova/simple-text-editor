@@ -5,7 +5,7 @@ public:
     char* text;
     Line* next;
 
-    Line(char* userText);
+    Line(const char* userText);
     ~Line();
 };
 
