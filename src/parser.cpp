@@ -1,66 +1,35 @@
-#include <cstdio>
+#include <iostream>
 #include "../include/parser.h"
-# include "../include/edit_commands.h"
-#include "../include/file_commands.h"
-#include "../include/additional_commands.h"
 
-// Functions definitions
-void printCommandsInfo() {
-    printf("0 - Help\n"
-           "1 - Append to the end\n"
-           "2 - New line\n"
-           "3 - Save into the file\n"
-           "4 - Load from the file\n"
-           "5 - Print current text\n"
-           "6 - Insert by line and index\n"
-           "7 - Search\n"
-           "8 - Exit\n");
-}
+char* Parser::readText() {
+    int bufferSize = 256; // Initial buffer size
+    char *buffer = (char*)malloc(bufferSize * sizeof(char)), *text = (char*)malloc(1);
+    text[0] = '\0';
+    size_t textSize = 0; // string length
 
-// Validate if the input is an integer and is in the range specified
-void getValidInput(int* result, int upperBound, const char* prompt) {
-    char input;
-    int status;
-    printf("%s", prompt);
-    while ((status = scanf("%d%c", result, &input)) != 2 || input != '\n' || *result < 0 || *result > upperBound) {
-        // clear the buffer to get correct new input
-        int res = *result;
-        if (input != '\n' || status != 2)
-            while (getchar() != '\n');
-
-        printf("%s", prompt);
+    std::cout << "Enter the text: ";
+    while (fgets(buffer, bufferSize, stdin)) {
+        textSize += strlen(buffer);
+        text = (char*)realloc(text, textSize + 1); // Reallocate memory if needed
+        strcat(text, buffer);
+        if (buffer[strlen(buffer) - 1] == '\n')
+            break;
     }
+
+    text[textSize - 1] = '\0';
+    free(buffer); // Free the memory that's no longer needed
+    return text;
 }
 
-// Call the function related to the command number
-void executeCommand(int command, LinkedList* pContent) {
-    switch (command) {
-        case 0:
-            printCommandsInfo();
-            return;
-        case 1:
-            appendText(pContent);
-            return;
-        case 2:
-            newLine(pContent);
-            return;
-        case 3:
-            saveToFile(pContent);
-            return;
-        case 4:
-            loadFromFile(pContent);
-            return;
-        case 5:
-            printText(pContent);
-            return;
-        case 6:
-            insertBy(pContent);
-            return;
-        case 7:
-            search(pContent);
-            return;
-        default:  // Exit the program
-            printf("Bye!");
-            return;
+ int Parser::readInteger(const char* prompt) {
+    int num;
+    std::cout << prompt;
+    while (!(std::cin >> num) || num < 0) {
+        std::cout << "\nInvalid input. " << prompt;
+        std::cin.clear(); // Clear the error flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore leftover newline
     }
+     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore any extra characters
+     return num;
 }
+
