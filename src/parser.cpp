@@ -8,16 +8,19 @@ char* Parser::readText() {
     size_t textSize = 0; // string length
 
     std::cout << "Enter the text: ";
-    while (fgets(buffer, bufferSize, stdin)) {
-        textSize += strlen(buffer);
-        text = (char*)realloc(text, textSize + 1); // Reallocate memory if needed
-        strcat(text, buffer);
-        if (buffer[strlen(buffer) - 1] == '\n')
+    while (std::cin.getline(buffer, bufferSize)) {
+        textSize += std::cin.gcount();
+        char* new_text = new char[textSize + 1]; // Allocate memory for new text
+        strcpy(new_text, text); // Copy old text to new text
+        strcat(new_text, buffer); // Append buffer to new text
+        delete[] text; // Delete old text
+        text = new_text; // Update text pointer
+        if (std::cin.eof()) {
             break;
+        }
     }
 
-    text[textSize - 1] = '\0';
-    free(buffer); // Free the memory that's no longer needed
+    delete[] buffer; // Free the memory that's no longer needed
     return text;
 }
 

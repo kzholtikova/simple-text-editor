@@ -9,11 +9,6 @@ Line::Line(const char* userText) {
     next = nullptr;  // Initialize memory
 }
 
-Line::~Line() {
-    if (text)
-        free(text);  // Deallocate memory
-}
-
 LinkedList::LinkedList() {
     head = nullptr;
     tail = nullptr;

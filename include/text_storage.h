@@ -6,7 +6,6 @@ public:
     Line* next;
 
     Line(const char* userText);
-    ~Line();
 };
 
 class LinkedList {
