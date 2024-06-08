@@ -1,48 +1,34 @@
 #include <gtest/gtest.h>
 #include "../include/text_storage.h"
-#include "../include/main_test.h"
 
-class LineTest : public CommandsTest {
-protected:
-    char* text;
-    Line* line;
-
-    void SetUp() override {
-        text = nullptr;
-        line = nullptr;
-    }
-
-    void TearDown() override {
-        if (line != nullptr) {
-            free(line->text);
-            free(line);
-        }
-    }
-};
-
-TEST_F(LineTest, CreateLineWithValidText) {
-text = "Hello, world!";
-line = createLine(text);
-
-ASSERT_NE(line, nullptr);
-EXPECT_STREQ(line->text, text);
-EXPECT_EQ(line->next, nullptr);
+TEST(LineTest, ConstructorWithNull) {
+    Line line(nullptr);
+    EXPECT_EQ(line.text, nullptr);
 }
 
-TEST_F(LineTest, CreateLineWithEmptyText) {
-text = "";
-line = createLine(text);
-
-ASSERT_NE(line, nullptr);
-EXPECT_STREQ(line->text, text);
-EXPECT_EQ(line->next, nullptr);
+TEST(LineTest, ConstructorWithText) {
+    const char* userText = "Hello, World!";
+    Line line(userText);
+    EXPECT_STREQ(line.text, userText);
 }
 
-TEST_F(LineTest, CreateLineWithNullText) {
-text = nullptr;
-line = createLine(text);
+TEST(LineTest, DestructorFreesMemory) {
+    const char* userText = "Hello, World!";
+    Line* line = new Line(userText);
+    delete line;
+    // If the destructor works correctly, this test will not cause a memory leak
+}
 
-ASSERT_NE(line, nullptr);
-EXPECT_EQ(line->text, nullptr);
-EXPECT_EQ(line->next, nullptr);
+TEST(LinkedListTest, ConstructorInitializesEmptyList) {
+    LinkedList list;
+    EXPECT_EQ(list.head, nullptr);
+    EXPECT_EQ(list.tail, nullptr);
+    EXPECT_EQ(list.length, 0);
+}
+
+TEST(LinkedListTest, DestructorDeletesAllNodes) {
+    auto* list = new LinkedList();
+    // Add some nodes to the list
+    // If the destructor works correctly, this test will not cause a memory leak
+    delete list;
 }

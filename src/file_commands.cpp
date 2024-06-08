@@ -29,7 +29,7 @@ void FileHandler::loadFromFile(LinkedList* content, const char* filename) {
         }
 
         fclose(file);
-        free(lineText);
+        delete[] lineText;
         std::cout << "Text has been successfully loaded.\n";
     } else
         std::cerr << "Error opening file: " << filename << std::endl;

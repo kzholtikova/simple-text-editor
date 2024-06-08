@@ -1,106 +1,74 @@
 #include <gtest/gtest.h>
-#include "../include/main_test.h"
 #include "../include/edit_commands.h"
 
-class EditCommandsTest : public CommandsTest {};
-
-TEST_F(EditCommandsTest, NewLineToEmptyList) {
-    setInput("Hello, world!\n");
-    redirectStdout();
-    newLine(list);
-    resetStdout();
-
-    ASSERT_EQ(list->length, 1);
-    ASSERT_NE(list->head, nullptr);
-    ASSERT_STREQ(list->head->text, "Hello, world!");
+TEST(EditorTest, NewLineAddsLineToEmptyList) {
+    LinkedList content;
+    Editor::newLine(&content, "Hello, World!");
+    EXPECT_STREQ(content.head->text, "Hello, World!");
+    EXPECT_EQ(content.length, 1);
 }
 
-TEST_F(EditCommandsTest, NewLineToNonEmptyList) {
-    list->head = createLine("Existing line");
-    list->tail = list->head;
-    list->length = 1;
-
-    setInput("New line\n");
-    redirectStdout();
-    newLine(list);
-    resetStdout();
-
-    ASSERT_EQ(list->length, 2);
-    ASSERT_NE(list->tail, nullptr);
-    ASSERT_STREQ(list->tail->text, "New line");
+TEST(EditorTest, NewLineAddsLineToNonEmptyList) {
+    LinkedList content;
+    Editor::newLine(&content, "Hello, World!");
+    Editor::newLine(&content, "Hello, GitHub Copilot!");
+    EXPECT_STREQ(content.tail->text, "Hello, GitHub Copilot!");
+    EXPECT_EQ(content.length, 2);
 }
 
-TEST_F(EditCommandsTest, AppendTextToEmptyList) {
-    setInput("Hello World!\n");
-    redirectStdout();
-    newLine(list);
-    resetStdout();
-
-    ASSERT_EQ(list->length, 1);
-    ASSERT_NE(list->head, nullptr);
-    ASSERT_STREQ(list->head->text, "Hello World!");
+TEST(EditorTest, PrintTextOutputsCorrectly) {
+    LinkedList content;
+    Editor::newLine(&content, "Hello, World!");
+    testing::internal::CaptureStdout();
+    Editor::printText(&content);
+    std::string output = testing::internal::GetCapturedStdout();
+    EXPECT_EQ(output, "Hello, World!\n");
 }
 
-TEST_F(EditCommandsTest, AppendTextToNonEmptyList) {
-    setInput("Hello\n");
-    redirectStdout();
-    newLine(list);
-    resetStdout();
-
-    setInput(" World!\n");
-    redirectStdout();
-    appendText(list);
-    resetStdout();
-
-    ASSERT_EQ(list->length, 1);
-    ASSERT_NE(list->head, nullptr);
-    ASSERT_STREQ(list->head->text, "Hello World!");
+TEST(EditorTest, AppendTextToEmptyList) {
+    LinkedList content;
+    Editor::appendText(&content, "Hello, World!");
+    EXPECT_STREQ(content.head->text, "Hello, World!");
+    EXPECT_EQ(content.length, 1);
 }
 
-TEST_F(EditCommandsTest, InsertByCorrectPosition) {
-    setInput("Line 1\n");
-    redirectStdout();
-    newLine(list);
-    resetStdout();
-
-    setInput("Line 2\n");
-    redirectStdout();
-    newLine(list);
-    resetStdout();
-
-    setInput("0\n5\nInserted Text\n");
-    redirectStdout();
-    insertBy(list);
-    resetStdout();
-
-    ASSERT_EQ(list->length, 2);
-    ASSERT_NE(list->head, nullptr);
-    ASSERT_STREQ(list->head->text, "Line Inserted Text1");
-    ASSERT_NE(list->head->next, nullptr);
-    ASSERT_STREQ(list->head->next->text, "Line 2");
+TEST(EditorTest, AppendTextToNonEmptyList) {
+    LinkedList content;
+    Editor::newLine(&content, "Hello, ");
+    Editor::appendText(&content, "World!");
+    EXPECT_STREQ(content.head->text, "Hello, World!");
 }
 
-TEST_F(EditCommandsTest, InsertByToEmptyList) {
-    setInput("0\n5\nInserted Text\n");
-    redirectStdout();
-    insertBy(list);
-    resetStdout();
-
-    ASSERT_EQ(list->length, 0);
+TEST(EditorTest, InsertByOutOfBounds) {
+    LinkedList content;
+    Editor::newLine(&content, "Hello, World!");
+    testing::internal::CaptureStderr();
+    Editor::insertBy(&content, 2, 0, "GitHub Copilot, ");
+    std::string output = testing::internal::GetCapturedStderr();
+    EXPECT_EQ(output, "Line index out of bounds.\n");
 }
 
-TEST_F(EditCommandsTest, PrintText) {
-    setInput("Line 1\n");
-    redirectStdout();
-    newLine(list);
-    resetStdout();
+TEST(EditorTest, InsertByInBounds) {
+    LinkedList content;
+    Editor::newLine(&content, "Hello, World!");
+    Editor::insertBy(&content, 0, 7, "GitHub Copilot, ");
+    EXPECT_STREQ(content.head->text, "Hello, GitHub Copilot, World!");
+}
 
-    setInput("Line 2\n");
-    redirectStdout();
-    newLine(list);
-    resetStdout();
+TEST(EditorTest, SearchPatternNotFound) {
+    LinkedList content;
+    Editor::newLine(&content, "Hello, World!");
+    testing::internal::CaptureStderr();
+    Editor::search(&content, "GitHub Copilot");
+    std::string output = testing::internal::GetCapturedStderr();
+    EXPECT_EQ(output, "'GitHub Copilot' is not found\n");
+}
 
-    std::string output = captureStdout(printText, list);
-    std::string expectedOutput = "Line 1\nLine 2\n";
-    ASSERT_EQ(output, expectedOutput);
+TEST(EditorTest, SearchPatternFound) {
+    LinkedList content;
+    Editor::newLine(&content, "Hello, GitHub Copilot!");
+    testing::internal::CaptureStdout();
+    Editor::search(&content, "GitHub Copilot");
+    std::string output = testing::internal::GetCapturedStdout();
+    EXPECT_EQ(output, "'GitHub Copilot'found at line 0, index 7\n");
 }
