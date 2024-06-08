@@ -1,12 +1,12 @@
-#ifndef SIMPLE_TEXT_EDITOR_EDIT_COMMANDS_H
-#define SIMPLE_TEXT_EDITOR_EDIT_COMMANDS_H
-
+#pragma once
 #include "text_storage.h"
 
-char* readText();
-void newLine(LinkedList* pContent);
-void printText(LinkedList* content);
-void appendText(LinkedList* content);
-void insertBy(LinkedList* pContent);
+class Editor {
+public:
+    static void newLine(LinkedList* content, const char* text);
+    static void printText(LinkedList* content);
+    static void appendText(LinkedList* content, const char* text);
+    static void insertBy(LinkedList* content, int lineIndex, int charIndex, const char* newText);
+    static void search(LinkedList* content, const char* pattern);
 
-#endif //SIMPLE_TEXT_EDITOR_EDIT_COMMANDS_H
+};
