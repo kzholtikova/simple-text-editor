@@ -1,14 +1,8 @@
-#include "../include/parser.h"
-#include "../include/additional_commands.h"
+#include <iostream>
+#include "../include/application.h"
 
-int main(void) {
-    int command;
-    LinkedList *pContent = new LinkedList();
-    do {
-        getValidInput(&command, 8, (char*)"Choose a command (0-8): ");
-        clearConsole();
-        executeCommand(command, pContent);
-    } while (command != 8);  // 8 - exit command
-
+int main() {
+    Application app;
+    app.run();
     return 0;
 }
