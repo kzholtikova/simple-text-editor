@@ -1,59 +1,36 @@
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include "../include/text_storage.h"
+#include <iostream>
+#include "../include/file_commands.h"
+#include "../include/edit_commands.h"
 
-FILE* openFile(const char* mode) {
-    char fileName[100];
-    printf("Enter the file name: ");
-    scanf("%s", fileName);
-    return fopen(fileName, mode);
-}
-
-void saveToFile(LinkedList* pContent) {
-    FILE* file = openFile("a");
-    if (file == nullptr) {
-        printf("Error opening file.\n");
-        return;
-    }
-
-    Line *pCurrentLine = pContent->head;
-    while (pCurrentLine != nullptr) {
-        fputs(pCurrentLine->text, file);
-        fputc('\n', file);
-        pCurrentLine = pCurrentLine->next;
-    }
-
-    printf("Text has been saved successfully.\n");
-    free(pCurrentLine);
-    fclose(file);
-}
-
-void loadFromFile(LinkedList* pContent) {
-    FILE* file = openFile("r");
-    if (file == nullptr) {
-        printf("Error opening file.\n");
-        return;
-    }
-
-    char *pLine = nullptr;
-    size_t lineSize = 0;
-    ssize_t length;
-    while ((length = getline(&pLine, &lineSize, file)) != -1) {
-        if (pLine[length - 1] == '\n')
-            pLine[length - 1] = '\0'; // Remove the newline character
-
-        if (pContent->head == nullptr) { // Handle an empty list
-            pContent->head = createLine(pLine);
-            pContent->tail = pContent->head;
-        } else {
-            pContent->tail->next = createLine(pLine);
-            pContent->tail = pContent->tail->next;
+void FileHandler::saveToFile(LinkedList* content, const char* filename) {
+    FILE* file = fopen(filename, "a");
+    if (file) {
+        for (Line *currentLine = content->head; currentLine; currentLine = currentLine->next) {
+            fputs(currentLine->text, file);
+            fputc('\n', file); // line end
         }
-        pContent->length++;
-    }
 
-    printf("Text has been loaded successfully.\n");
-    free(pLine);
-    fclose(file);
+        fclose(file);
+        std::cout << "Text has been successfully saved.\n";
+    } else
+        std::cerr << "Error opening file: " << filename << std::endl;
+}
+
+void FileHandler::loadFromFile(LinkedList* content, const char* filename) {
+    FILE* file = fopen(filename, "r"); // default mode: text
+    if (file) {
+        char *lineText = nullptr;
+        size_t lineSize = 0;
+        ssize_t length;
+        while ((length = getline(&lineText, &lineSize, file)) != -1) {
+            if (length > 0 && lineText[length - 1] == '\n')
+                lineText[length - 1] = '\0'; // Remove the newline character
+            Editor::newLine(content, lineText);
+        }
+
+        fclose(file);
+        free(lineText);
+        std::cout << "Text has been successfully loaded.\n";
+    } else
+        std::cerr << "Error opening file: " << filename << std::endl;
 }
