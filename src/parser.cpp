@@ -28,7 +28,7 @@ char* Parser::readText() {
     int num;
     std::cout << prompt;
     while (!(std::cin >> num) || num < 0) {
-        std::cout << "\nInvalid input. " << prompt;
+        std::cout << "Invalid input. " << prompt;
         std::cin.clear(); // Clear the error flag
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore leftover newline
     }
