@@ -3,22 +3,22 @@
 
 char* Parser::readText() {
     int bufferSize = 256; // Initial buffer size
-    char *buffer = (char*)malloc(bufferSize * sizeof(char)), *text = (char*)malloc(1);
-    text[0] = '\0';
-    size_t textSize = 0; // string length
+    char *buffer = new char[bufferSize + 1];
 
     std::cout << "Enter the text: ";
-    while (std::cin.getline(buffer, bufferSize)) {
-        textSize += std::cin.gcount();
-        char* new_text = new char[textSize + 1]; // Allocate memory for new text
-        strcpy(new_text, text); // Copy old text to new text
-        strcat(new_text, buffer); // Append buffer to new text
-        delete[] text; // Delete old text
-        text = new_text; // Update text pointer
-        if (std::cin.eof()) {
-            break;
-        }
+    std::cin.getline(buffer, bufferSize);
+    while (!std::cin.eof() && std::cin.fail()) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        bufferSize *= 2; // Double the buffer size
+        char* new_buffer = new char[bufferSize + 1]; // Allocate memory for new buffer
+        delete[] buffer; // Free the old buffer
+        buffer = new_buffer; // Update buffer pointer
+        std::cin.getline(buffer, bufferSize);
     }
+    char* text = new char[bufferSize + 1]; // Allocate memory for new text
+    text[0] = '\0'; // Initialize text
+    strncat(text, buffer, bufferSize); // Append buffer to new text
 
     delete[] buffer; // Free the memory that's no longer needed
     return text;
