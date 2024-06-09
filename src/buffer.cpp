@@ -5,6 +5,11 @@ Buffer::Buffer() {
     clip = nullptr; // buffer text
 }
 
+char* Buffer::getClip() {
+    return clip;
+}
+
+
 void Buffer::cut(LinkedList *content, int lineIndex, int charIndex, size_t length) {
     copy(content, lineIndex, charIndex, length);
     Editor::deleteBy(content, lineIndex, charIndex, length);
@@ -22,5 +27,6 @@ void Buffer::copy(LinkedList *content, int lineIndex, int charIndex, size_t leng
 }
 
 void Buffer::paste(LinkedList *content, int lineIndex, int charIndex) {
-    Editor::insertBy(content, lineIndex, charIndex, clip);
+    if (clip)
+        Editor::insertBy(content, lineIndex, charIndex, clip);
 }
