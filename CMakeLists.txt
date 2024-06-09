@@ -7,9 +7,9 @@ set(CMAKE_C_STANDARD 11)
 add_executable(simple_text_editor src/main.cpp
         src/parser.cpp
         src/text_storage.cpp
-        src/edit_commands.cpp
-        src/file_commands.cpp
-        include/file_commands.h
+        src/editor.cpp
+        src/file_handler.cpp
+        include/file_handler.h
         src/application.cpp
         include/application.h
 )
@@ -21,8 +21,8 @@ add_subdirectory(cmake-build-debug/googletest)
 add_executable(simple_text_editor_tests test/main_test.cpp include/main_test.h
         test/text_storage_test.cpp src/text_storage.cpp
         test/parser_test.cpp src/parser.cpp
-        test/edit_commands_test.cpp src/edit_commands.cpp
-        test/file_commands_test.cpp src/file_commands.cpp
+        test/editor_test.cpp src/editor.cpp
+        test/file_handler_test.cpp src/file_handler.cpp
 )
 
 # Link Google Test to the test target

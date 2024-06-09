@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include "../include/main_test.h"
-#include "../include/file_commands.h"
-#include "../include/edit_commands.h"
+#include "../include/file_handler.h"
+#include "../include/editor.h"
 
 TEST(FileHandlerTest, SaveToFileWithEmptyContent) {
     LinkedList content;

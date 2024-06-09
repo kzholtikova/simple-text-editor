@@ -1,6 +1,6 @@
 #include <iostream>
-#include "../include/file_commands.h"
-#include "../include/edit_commands.h"
+#include "../include/file_handler.h"
+#include "../include/editor.h"
 
 void FileHandler::saveToFile(LinkedList* content, const char* filename) {
     FILE* file = fopen(filename, "a");
@@ -12,8 +12,10 @@ void FileHandler::saveToFile(LinkedList* content, const char* filename) {
 
         fclose(file);
         std::cout << "Text has been successfully saved.\n";
-    } else
-        std::cerr << "Error opening file: " << filename << std::endl;
+    } else {
+        std::cerr << "Error opening file: " << filename << "\n";
+        std::cin.get();
+    }
 }
 
 void FileHandler::loadFromFile(LinkedList* content, const char* filename) {
@@ -31,6 +33,8 @@ void FileHandler::loadFromFile(LinkedList* content, const char* filename) {
         fclose(file);
         delete[] lineText;
         std::cout << "Text has been successfully loaded.\n";
-    } else
-        std::cerr << "Error opening file: " << filename << std::endl;
+    } else {
+        std::cerr << "Error opening file: " << filename << "\n";
+        std::cin.get();
+    }
 }

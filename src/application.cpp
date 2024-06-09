@@ -1,7 +1,7 @@
 #include <iostream>
 #include "../include/application.h"
-#include "../include/edit_commands.h"
-#include "../include/file_commands.h"
+#include "../include/editor.h"
+#include "../include/file_handler.h"
 
 void Application::printCommandsInfo() {
     std::cout << "0 - Help\n"
@@ -11,8 +11,10 @@ void Application::printCommandsInfo() {
               << "4 - Load from the file\n"
               << "5 - Print current text\n"
               << "6 - Insert by line and index\n"
-              << "7 - Search\n"
-              << "8 - Exit\n";
+              << "7 - Replace by line and index\n"
+              << "8 - Delete by line and index\n"
+              << "9 - Search\n"
+              << "10 - Exit\n";
 }
 
 void  Application::clearConsole() {
@@ -45,9 +47,18 @@ void  Application::executeCommand() {
                              Parser::readInteger("Enter a char index: "), Parser::readText());
             return;
         case 7:
+            Editor::replaceBy(content, Parser::readInteger("Enter a line index: "),
+                              Parser::readInteger("Enter a char index: "), Parser::readText());
+            return;
+        case 8:
+            Editor::deleteBy(content, Parser::readInteger("Enter a line index: "),
+                             Parser::readInteger("Enter a char index: "),
+                             Parser::readInteger("Enter a length: "));
+            return;
+        case 9:
             Editor::search(content, Parser::readText());
             return;
-        case 8: // Exit
+        case 10: // Exit
             std::cout << "Bye!";
             return;
         default:
@@ -62,5 +73,5 @@ void Application::run() {
         command = Parser::readInteger("Choose a command (0-8): ");
         clearConsole();
         executeCommand();
-    } while (command != 8);  // 8 - exit command
+    } while (command != 10);  // 8 - exit command
 }
