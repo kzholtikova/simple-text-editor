@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../include/edit_commands.h"
+#include "../include/editor.h"
 
 // const prevents modification passing read-only ref
 void Editor::newLine(LinkedList* content, const char* text) {

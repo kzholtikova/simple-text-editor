@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include "../include/main_test.h"
-#include "../include/edit_commands.h"
+#include "../include/editor.h"
 
 TEST(EditorTest, NewLineAddsLineToEmptyList) {
     LinkedList content;

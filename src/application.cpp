@@ -1,7 +1,7 @@
 #include <iostream>
 #include "../include/application.h"
-#include "../include/edit_commands.h"
-#include "../include/file_commands.h"
+#include "../include/editor.h"
+#include "../include/file_handler.h"
 
 void Application::printCommandsInfo() {
     std::cout << "0 - Help\n"

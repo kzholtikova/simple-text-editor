@@ -1,6 +1,6 @@
 #include <iostream>
-#include "../include/file_commands.h"
-#include "../include/edit_commands.h"
+#include "../include/file_handler.h"
+#include "../include/editor.h"
 
 void FileHandler::saveToFile(LinkedList* content, const char* filename) {
     FILE* file = fopen(filename, "a");
