@@ -6,6 +6,21 @@ int main(int argc, char **argv) {
     return RUN_ALL_TESTS();
 }
 
+std::streambuf* redirectCin() {
+    static std::stringstream testInput;  // Make it static to ensure it stays in scope
+    testInput.str("");  // Clear the stringstream
+    testInput.clear();  // Clear any error flags
+    testInput << "\n";  // Provide a newline character as input
+    // Save the old buffer and redirect std::cin to read from testInput
+    std::streambuf *oldCinBuffer = std::cin.rdbuf();
+    std::cin.rdbuf(testInput.rdbuf());
+    return oldCinBuffer;
+}
+
+void resetCin(std::streambuf* cinBuffer) {
+    std::cin.rdbuf(cinBuffer);
+}
+
 std::streambuf* redirectCout() {
     std::ofstream out("output.txt");
     std::streambuf *coutbuf = std::cout.rdbuf(); // save old buf

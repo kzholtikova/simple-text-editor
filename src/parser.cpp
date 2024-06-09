@@ -17,8 +17,8 @@ char* Parser::readText() {
         std::cin.getline(buffer, bufferSize);
     }
     char* text = new char[bufferSize + 1]; // Allocate memory for new text
-    text[0] = '\0'; // Initialize text
-    strncat(text, buffer, bufferSize); // Append buffer to new text
+    std::copy(buffer, buffer + bufferSize, text);
+    text[bufferSize] = '\0';
 
     delete[] buffer; // Free the memory that's no longer needed
     return text;
