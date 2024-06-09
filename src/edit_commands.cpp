@@ -27,27 +27,6 @@ void Editor::appendText(LinkedList* content, const char* newText) {
         Editor::newLine(content, newText);
 }
 
-//        Parser::getValidInteger(&lineIndex, content->length - 1, (char*)"Enter a line index: ");
-//        Parser::getValidInteger(&symbolIndex, strlen(line->text), (char*)"Enter a symbol index: ");
-void Editor::insertBy(LinkedList* content, int lineIndex, int charIndex, const char* newText) {
-    Line *line = content->head;
-    for (int i = 0; line && i < lineIndex; i++)
-        line = line->next;
-
-    if (line) {
-        size_t oldLength = strlen(line->text);
-        size_t toInsertLength = strlen(newText);
-        if (charIndex >= 0 && charIndex <= strlen(line->text)) {
-            line->text = (char*)realloc(line->text, (oldLength + toInsertLength + 1) * sizeof(char));
-            // Move rest symbols and insert at the specified index
-            memmove(line->text + charIndex + toInsertLength, line->text + charIndex, oldLength - charIndex + 1);
-            memcpy(line->text + charIndex, newText, toInsertLength);
-        } else
-            std::cerr << "Symbol index out of bounds." << std::endl;
-    } else
-        std::cerr << "Line index out of bounds." << std::endl;
-}
-
 void Editor::search(LinkedList* content, const char* pattern) {
     size_t patternLen = strlen(pattern);
     bool found = false;
@@ -61,6 +40,50 @@ void Editor::search(LinkedList* content, const char* pattern) {
         }
     }
 
-    if (!found)
-        std::cerr << "'" << pattern << "'" << " is not found" << std::endl;
+    if (!found) {
+        std::cerr << "'" << pattern << "'" << " is not found.\n";
+        std::cin.get();
+    }
+}
+
+void Editor::insertBy(LinkedList* content, int lineIndex, int charIndex, const char* newText) {
+    Line *line = setPosition(content, lineIndex, charIndex);
+    if (line) {
+        size_t oldLength = strlen(line->text);
+        size_t toInsertLength = strlen(newText);
+        line->text = (char*)realloc(line->text, (oldLength + toInsertLength + 1) * sizeof(char));
+        // Move rest symbols and insert at the specified index
+        std::copy(line->text + charIndex, line->text + oldLength + 1, line->text + charIndex + toInsertLength);
+        std::copy(newText, newText + toInsertLength, line->text + charIndex);
+    }
+}
+
+void Editor::replaceBy(LinkedList *content, int lineIndex, int charIndex, const char *newText) {
+    Line *line = setPosition(content, lineIndex, charIndex);
+    if (line)
+        std::copy(newText, newText + strlen(newText), line->text + charIndex);
+}
+
+void Editor::deleteBy(LinkedList *content, int lineIndex, int charIndex, size_t length) {
+    Line *line = setPosition(content, lineIndex, charIndex);
+    if (line)
+        std::copy(line->text + charIndex + length, line->text + strlen(line->text) + 1, line->text + charIndex);
+}
+
+Line* Editor::setPosition(LinkedList *content, int lineIndex, int charIndex) {
+    Line *line = content->head;
+    for (int i = 0; line && i < lineIndex; i++)
+        line = line->next;
+
+    if (line) {
+        if (charIndex >= 0 || charIndex <= strlen(line->text))
+            return line;
+        std::cerr << "Symbol index out of bounds.\n";
+        std::cin.get();
+    } else {
+        std::cerr << "Line index out of bounds.\n";
+        std::cin.get();
+    }
+
+    return nullptr;
 }
