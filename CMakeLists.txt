@@ -12,6 +12,8 @@ add_executable(simple_text_editor src/main.cpp
         include/file_handler.h
         src/application.cpp
         include/application.h
+        src/buffer.cpp
+        include/buffer.h
 )
 
 # Add Google Test to the project

@@ -14,7 +14,10 @@ void Application::printCommandsInfo() {
               << "7 - Replace by line and index\n"
               << "8 - Delete by line and index\n"
               << "9 - Search\n"
-              << "10 - Exit\n";
+              << "10 - Cut\n"
+              << "11 - Copy\n"
+              << "12 - Paste\n"
+              << "13 - Exit\n";
 }
 
 void  Application::clearConsole() {
@@ -24,41 +27,55 @@ void  Application::clearConsole() {
 // Call the function related to the command number
 void  Application::executeCommand() {
     switch (command) {
-        case 0:
+        case 0: // Help
             printCommandsInfo();
             return;
         case 1:
-            Editor::appendText(content, Parser::readText());
+            Editor::appendText(&content, Parser::readText());
             return;
         case 2:
-            Editor::newLine(content, Parser::readText());
+            Editor::newLine(&content, Parser::readText());
             return;
         case 3:
-            FileHandler::saveToFile(content, Parser::readText());
+            FileHandler::saveToFile(&content, Parser::readText());
             return;
         case 4:
-            FileHandler::loadFromFile(content, Parser::readText());
+            FileHandler::loadFromFile(&content, Parser::readText());
             return;
         case 5:
-            Editor::printText(content);
+            Editor::printText(&content);
             return;
         case 6:
-            Editor::insertBy(content, Parser::readInteger("Enter a line index: "),
+            Editor::insertBy(&content, Parser::readInteger("Enter a line index: "),
                              Parser::readInteger("Enter a char index: "), Parser::readText());
             return;
         case 7:
-            Editor::replaceBy(content, Parser::readInteger("Enter a line index: "),
+            Editor::replaceBy(&content, Parser::readInteger("Enter a line index: "),
                               Parser::readInteger("Enter a char index: "), Parser::readText());
             return;
         case 8:
-            Editor::deleteBy(content, Parser::readInteger("Enter a line index: "),
+            Editor::deleteBy(&content, Parser::readInteger("Enter a line index: "),
                              Parser::readInteger("Enter a char index: "),
                              Parser::readInteger("Enter a length: "));
             return;
         case 9:
-            Editor::search(content, Parser::readText());
+            Editor::search(&content, Parser::readText());
             return;
-        case 10: // Exit
+        case 10:
+            buffer.cut(&content, Parser::readInteger("Enter a line index: "),
+                        Parser::readInteger("Enter a char index: "),
+                        Parser::readInteger("Enter a length: "));
+            return;
+        case 11:
+            buffer.copy(&content, Parser::readInteger("Enter a line index: "),
+                         Parser::readInteger("Enter a char index: "),
+                         Parser::readInteger("Enter a length: "));
+            return;
+        case 12:
+            buffer.paste(&content, Parser::readInteger("Enter a line index: "),
+                          Parser::readInteger("Enter a char index: "));
+            return;
+        case 13: // Exit
             std::cout << "Bye!";
             return;
         default:
@@ -73,5 +90,5 @@ void Application::run() {
         command = Parser::readInteger("Choose a command (0-8): ");
         clearConsole();
         executeCommand();
-    } while (command != 10);  // 8 - exit command
+    } while (command != 13);  // 8 - exit command
 }
