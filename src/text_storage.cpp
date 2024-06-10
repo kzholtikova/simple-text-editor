@@ -1,11 +1,12 @@
 #include <iostream>
-#include <vector>
 #include "../include/text_storage.h"
 
 Line::Line(const char* userText) {
     text = nullptr;
-    if (userText)
-        text = strdup(userText);  // Allocate memory for the 'str' copy, copies, returns a pointer
+    if (userText) {
+        text = new char[strlen(userText) + 1];  // Allocate memory for the 'str' copy
+        std::copy(userText, userText + strlen(userText), text);  // Copy the string
+    }
     next = nullptr;  // Initialize memory
 }
 

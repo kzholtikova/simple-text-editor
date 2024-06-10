@@ -3,34 +3,15 @@
 #include "../include/file_handler.h"
 #include "../include/editor.h"
 
-TEST(FileHandlerTest, SaveToFileWithEmptyContent) {
+TEST(FileHandlerTest, SaveAndLoadEmptyFile) {
     LinkedList content;
     std::streambuf* coutbuf = redirectCout();
     FileHandler::saveToFile(&content, "empty.txt");
+    LinkedList loadedContent;
+    FileHandler::loadFromFile(&loadedContent, "empty.txt");
     resetCout(coutbuf);
-}
-
-TEST(FileHandlerTest, SaveToFileWithContent) {
-    LinkedList content;
-    Editor::newLine(&content, "Hello, World!");
-    std::streambuf* coutbuf = redirectCout();
-    FileHandler::saveToFile(&content, "test.txt");
-    resetCout(coutbuf);
-}
-
-TEST(FileHandlerTest, LoadFromFileWithEmptyFile) {
-    LinkedList content;
-    std::streambuf* coutbuf = redirectCout();
-    FileHandler::loadFromFile(&content, "empty.txt");
-    resetCout(coutbuf);
-    EXPECT_EQ(content.length, 0);
-}
-
-TEST(FileHandlerTest, LoadFromFileWithContent) {
-    LinkedList content;
-    std::streambuf* coutbuf = redirectCout();
-    FileHandler::loadFromFile(&content, "test.txt");
-    resetCout(coutbuf);
+    EXPECT_EQ(loadedContent.length, 0);
+    EXPECT_EQ(loadedContent.head, nullptr);
 }
 
 TEST(FileHandlerTest, SaveAndLoadFile) {
@@ -41,4 +22,5 @@ TEST(FileHandlerTest, SaveAndLoadFile) {
     LinkedList loadedContent;
     FileHandler::loadFromFile(&loadedContent, "hello.txt");
     resetCout(coutbuf);
+    EXPECT_STREQ(loadedContent.head->text, content.head->text);
 }
