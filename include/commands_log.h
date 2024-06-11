@@ -12,6 +12,8 @@ private:
     size_t stackSize;
 public:
     CommandsLog(LinkedList& content);
+    Line getLineBefore(int index);
+    Line getLineAfter(int index);
 
     void logBefore(Line line, int lineIndex);
     void logAfter(Line line);

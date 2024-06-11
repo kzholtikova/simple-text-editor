@@ -73,3 +73,11 @@ void CommandsLog::redo() {
     } else
         std::cout << "Nothing to redo.\n";
 }
+
+Line CommandsLog::getLineBefore(int index) {
+    return lineBeforeStack[index];
+}
+
+Line CommandsLog::getLineAfter(int index) {
+    return lineAfterStack[index];
+}
