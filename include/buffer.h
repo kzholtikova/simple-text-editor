@@ -1,15 +1,17 @@
 #pragma once
 #include <iostream>
-#include "text_storage.h"
+#include "commands_log.h"
+#include "editor.h"
 
 class Buffer {
 private:
     char* clip;
+    CommandsLog& cmdLog;
 public:
-    Buffer();
+    Buffer(CommandsLog& cmdLog);
 
     char* getClip();
-    void cut(LinkedList* content, int lineIndex, int charIndex, size_t length);
-    void copy(LinkedList* content, int lineIndex, int charIndex, size_t length);
-    void paste(LinkedList* content, int lineIndex, int charIndex);
+    void cut(Editor editor, int lineIndex, int charIndex, size_t length);
+    void copy(Editor editor, int lineIndex, int charIndex, size_t length);
+    void paste(Editor editor, int lineIndex, int charIndex);
 };
