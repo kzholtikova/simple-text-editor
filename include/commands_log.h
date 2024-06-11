@@ -4,14 +4,17 @@
 
 class CommandsLog {
 private:
-    Line** lineStack;
+    LinkedList& content;
+    Line* lineAfterStack;
+    Line* lineBeforeStack;
     int* lineIndexStack;
     int topIndex;
     size_t stackSize;
 public:
-    CommandsLog();
+    CommandsLog(LinkedList& content);
 
-    void log(Line* line, int lineIndex);
+    void logBefore(Line line, int lineIndex);
+    void logAfter(Line line);
     void undo();
     void redo();
 };
