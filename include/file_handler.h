@@ -1,8 +1,8 @@
 #pragma once
-#include "text_storage.h"
+#include "editor.h"
 
 class FileHandler {
 public:
-    static void saveToFile(LinkedList* content, const char* filename);
-    static void loadFromFile(LinkedList* content, const char* filename);
+    static void saveToFile(Editor editor, const char* filename);
+    static void loadFromFile(Editor editor,  const char* filename);
 };

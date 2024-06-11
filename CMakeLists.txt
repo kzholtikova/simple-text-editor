@@ -14,6 +14,8 @@ add_executable(simple_text_editor src/main.cpp
         include/application.h
         src/buffer.cpp
         include/buffer.h
+        src/commands_log.cpp
+        include/commands_log.h
 )
 
 # Add Google Test to the project
@@ -26,6 +28,7 @@ add_executable(simple_text_editor_tests test/main_test.cpp include/main_test.h
         test/editor_test.cpp src/editor.cpp
         test/file_handler_test.cpp src/file_handler.cpp
         test/buffer_test.cpp src/buffer.cpp
+        test/commands_log_test.cpp
 )
 
 # Link Google Test to the test target

@@ -5,6 +5,7 @@ public:
     char* text;
     Line* next;
 
+    Line() {}; // Default constructor
     Line(const char* userText);
 };
 

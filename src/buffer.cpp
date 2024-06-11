@@ -1,7 +1,8 @@
 #include "../include/buffer.h"
 #include "../include/editor.h"
 
-Buffer::Buffer() {
+Buffer::Buffer(CommandsLog& cmdLog) : cmdLog(cmdLog) {
+    //  ref members must be initialized in the initializer list, not in the constructor body
     clip = nullptr; // buffer text
 }
 
@@ -10,13 +11,13 @@ char* Buffer::getClip() {
 }
 
 
-void Buffer::cut(LinkedList *content, int lineIndex, int charIndex, size_t length) {
-    copy(content, lineIndex, charIndex, length);
-    Editor::deleteBy(content, lineIndex, charIndex, length);
+void Buffer::cut(Editor editor, int lineIndex, int charIndex, size_t length) {
+    copy(editor, lineIndex, charIndex, length);
+    editor.deleteBy(lineIndex, charIndex, length);
 }
 
-void Buffer::copy(LinkedList *content, int lineIndex, int charIndex, size_t length) {
-    Line *line = Editor::setPosition(content, lineIndex, charIndex);
+void Buffer::copy(Editor editor, int lineIndex, int charIndex, size_t length) {
+    Line *line = editor.setPosition(lineIndex, charIndex);
     if (line) {
         if (clip)
             delete[] clip; // deallocate to avoid a memory leak
@@ -26,7 +27,7 @@ void Buffer::copy(LinkedList *content, int lineIndex, int charIndex, size_t leng
     }
 }
 
-void Buffer::paste(LinkedList *content, int lineIndex, int charIndex) {
+void Buffer::paste(Editor editor, int lineIndex, int charIndex) {
     if (clip)
-        Editor::insertBy(content, lineIndex, charIndex, clip);
+        editor.insertBy(lineIndex, charIndex, clip);
 }

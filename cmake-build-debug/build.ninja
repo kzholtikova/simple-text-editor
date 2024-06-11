@@ -51,43 +51,49 @@ build cmake_object_order_depends_target_simple_text_editor: phony || CMakeFiles/
 
 build CMakeFiles/simple_text_editor.dir/src/main.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/main.cpp || cmake_object_order_depends_target_simple_text_editor
   DEP_FILE = CMakeFiles/simple_text_editor.dir/src/main.cpp.o.d
-  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
 
 build CMakeFiles/simple_text_editor.dir/src/parser.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/parser.cpp || cmake_object_order_depends_target_simple_text_editor
   DEP_FILE = CMakeFiles/simple_text_editor.dir/src/parser.cpp.o.d
-  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
 
 build CMakeFiles/simple_text_editor.dir/src/text_storage.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/text_storage.cpp || cmake_object_order_depends_target_simple_text_editor
   DEP_FILE = CMakeFiles/simple_text_editor.dir/src/text_storage.cpp.o.d
-  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
 
 build CMakeFiles/simple_text_editor.dir/src/editor.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/editor.cpp || cmake_object_order_depends_target_simple_text_editor
   DEP_FILE = CMakeFiles/simple_text_editor.dir/src/editor.cpp.o.d
-  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
 
 build CMakeFiles/simple_text_editor.dir/src/file_handler.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/file_handler.cpp || cmake_object_order_depends_target_simple_text_editor
   DEP_FILE = CMakeFiles/simple_text_editor.dir/src/file_handler.cpp.o.d
-  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
 
 build CMakeFiles/simple_text_editor.dir/src/application.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/application.cpp || cmake_object_order_depends_target_simple_text_editor
   DEP_FILE = CMakeFiles/simple_text_editor.dir/src/application.cpp.o.d
-  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
 
 build CMakeFiles/simple_text_editor.dir/src/buffer.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/buffer.cpp || cmake_object_order_depends_target_simple_text_editor
   DEP_FILE = CMakeFiles/simple_text_editor.dir/src/buffer.cpp.o.d
-  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/simple_text_editor.dir
+  OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
+
+build CMakeFiles/simple_text_editor.dir/src/commands_log.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/commands_log.cpp || cmake_object_order_depends_target_simple_text_editor
+  DEP_FILE = CMakeFiles/simple_text_editor.dir/src/commands_log.cpp.o.d
+  FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
 
@@ -99,7 +105,7 @@ build CMakeFiles/simple_text_editor.dir/src/buffer.cpp.o: CXX_COMPILER__simple_t
 #############################################
 # Link the executable simple_text_editor
 
-build simple_text_editor: CXX_EXECUTABLE_LINKER__simple_text_editor_Debug CMakeFiles/simple_text_editor.dir/src/main.cpp.o CMakeFiles/simple_text_editor.dir/src/parser.cpp.o CMakeFiles/simple_text_editor.dir/src/text_storage.cpp.o CMakeFiles/simple_text_editor.dir/src/editor.cpp.o CMakeFiles/simple_text_editor.dir/src/file_handler.cpp.o CMakeFiles/simple_text_editor.dir/src/application.cpp.o CMakeFiles/simple_text_editor.dir/src/buffer.cpp.o
+build simple_text_editor: CXX_EXECUTABLE_LINKER__simple_text_editor_Debug CMakeFiles/simple_text_editor.dir/src/main.cpp.o CMakeFiles/simple_text_editor.dir/src/parser.cpp.o CMakeFiles/simple_text_editor.dir/src/text_storage.cpp.o CMakeFiles/simple_text_editor.dir/src/editor.cpp.o CMakeFiles/simple_text_editor.dir/src/file_handler.cpp.o CMakeFiles/simple_text_editor.dir/src/application.cpp.o CMakeFiles/simple_text_editor.dir/src/buffer.cpp.o CMakeFiles/simple_text_editor.dir/src/commands_log.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   POST_BUILD = :
@@ -193,6 +199,13 @@ build CMakeFiles/simple_text_editor_tests.dir/src/buffer.cpp.o: CXX_COMPILER__si
   OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor_tests.dir/src
 
+build CMakeFiles/simple_text_editor_tests.dir/test/commands_log_test.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/test/commands_log_test.cpp || cmake_object_order_depends_target_simple_text_editor_tests
+  DEP_FILE = CMakeFiles/simple_text_editor_tests.dir/test/commands_log_test.cpp.o.d
+  FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/simple_text_editor_tests.dir/test
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target simple_text_editor_tests
@@ -201,7 +214,7 @@ build CMakeFiles/simple_text_editor_tests.dir/src/buffer.cpp.o: CXX_COMPILER__si
 #############################################
 # Link the executable simple_text_editor_tests
 
-build simple_text_editor_tests: CXX_EXECUTABLE_LINKER__simple_text_editor_tests_Debug CMakeFiles/simple_text_editor_tests.dir/test/main_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/text_storage_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/text_storage.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/parser_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/parser.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/editor_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/editor.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/file_handler_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/file_handler.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/buffer_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/buffer.cpp.o | lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
+build simple_text_editor_tests: CXX_EXECUTABLE_LINKER__simple_text_editor_tests_Debug CMakeFiles/simple_text_editor_tests.dir/test/main_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/text_storage_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/text_storage.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/parser_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/parser.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/editor_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/editor.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/file_handler_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/file_handler.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/buffer_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/buffer.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/commands_log_test.cpp.o | lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
   LINK_LIBRARIES = lib/libgtest_main.a  lib/libgtest.a
   OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
