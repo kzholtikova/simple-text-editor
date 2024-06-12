@@ -5,8 +5,9 @@
 TEST(BufferTest, CutRemovesTextFromContent) {
     Buffer buffer;
     LinkedList content;
-    Editor::newLine(&content, "Hello, world!");
-    buffer.cut(&content, 0, 0, 5);
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog, "Hello, world!");
+    buffer.cut(&content, &cmdLog,0, 0, 5);
     EXPECT_STREQ(content.head->text, ", world!");
     EXPECT_STREQ(buffer.getClip(), "Hello");
 }
@@ -14,7 +15,8 @@ TEST(BufferTest, CutRemovesTextFromContent) {
 TEST(BufferTest, CopyDoesNotRemoveTextFromContent) {
     Buffer buffer;
     LinkedList content;
-    Editor::newLine(&content, "Hello, world!");
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog, "Hello, world!");
     buffer.copy(&content, 0, 0, 5);
     EXPECT_STREQ(content.head->text, "Hello, world!");
     EXPECT_STREQ(buffer.getClip(), "Hello");
@@ -23,7 +25,8 @@ TEST(BufferTest, CopyDoesNotRemoveTextFromContent) {
 TEST(BufferTest, CopyLengthGreaterThanLineLength) {
     Buffer buffer;
     LinkedList content;
-    Editor::newLine(&content, "Hello, world!");
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog,"Hello, world!");
     buffer.copy(&content, 0, 0, 100);
     EXPECT_STREQ(buffer.getClip(), "Hello, world!");
 }
@@ -31,7 +34,8 @@ TEST(BufferTest, CopyLengthGreaterThanLineLength) {
 TEST(BufferTest, CopyAfterCopy) {
     Buffer buffer;
     LinkedList content;
-    Editor::newLine(&content, "Hello, world!");
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog,"Hello, world!");
     buffer.copy(&content, 0, 0, 5);
     EXPECT_STREQ(buffer.getClip(), "Hello");
     buffer.copy(&content, 0, 7, 5);
@@ -41,16 +45,18 @@ TEST(BufferTest, CopyAfterCopy) {
 TEST(BufferTest, PasteInsertsTextFromBufferToContent) {
     Buffer buffer;
     LinkedList content;
-    Editor::newLine(&content, "Hello, world!");
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog,"Hello, world!");
     buffer.copy(&content, 0, 0, 5);
-    buffer.paste(&content, 0, 6);
+    buffer.paste(&content, &cmdLog, 0, 6);
     EXPECT_STREQ(content.head->text, "Hello,Hello world!");
 }
 
 TEST(BufferTest, PasteDoesNothingWhenBufferIsEmpty) {
     Buffer buffer;
     LinkedList content;
-    Editor::newLine(&content, "Hello, world!");
-    buffer.paste(&content, 0, 6);
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog, "Hello, world!");
+    buffer.paste(&content, &cmdLog, 0, 6);
     EXPECT_STREQ(content.head->text, "Hello, world!");
 }

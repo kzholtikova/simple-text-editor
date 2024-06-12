@@ -28,7 +28,8 @@ add_executable(simple_text_editor_tests test/main_test.cpp include/main_test.h
         test/editor_test.cpp src/editor.cpp
         test/file_handler_test.cpp src/file_handler.cpp
         test/buffer_test.cpp src/buffer.cpp
-        test/commands_log_test.cpp
+        test/commands_log_test.cpp src/commands_log.cpp
+        src/application.cpp
 )
 
 # Link Google Test to the test target

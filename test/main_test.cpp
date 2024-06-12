@@ -22,7 +22,7 @@ void resetCin(std::streambuf* cinBuffer) {
 }
 
 std::streambuf* redirectCout() {
-    std::ofstream out("output.txt");
+    static std::ofstream out("output.txt");
     std::streambuf *coutbuf = std::cout.rdbuf(); // save old buf
     std::cout.rdbuf(out.rdbuf()); // redirect std::cout to output.txt
     return coutbuf;
