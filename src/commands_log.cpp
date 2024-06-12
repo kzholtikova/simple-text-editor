@@ -1,53 +1,57 @@
 #include <iostream>
 #include "../include/commands_log.h"
+#include "../include/editor.h"
 
-CommandsLog::CommandsLog(LinkedList& content) : content(content) {
+CommandsLog::CommandsLog() {
     stackSize = 4;
-    lineAfterStack = new Line[stackSize];
-    lineBeforeStack = new Line[stackSize];
-    lineIndexStack = new int[stackSize];
+    currentStackSize = 0;
+    logStack = new LineLog[stackSize];
     topIndex = -1;
 }
 
-void CommandsLog::logBefore(Line line, int lineIndex) {
+void CommandsLog::logBefore(const Line& line, int lineIndex) {
     if (stackSize == topIndex + 1) {
         stackSize *= 2;
-        Line* newLineStack = new Line[stackSize];
-        Line* newPrevLineStack = new Line[stackSize];
-        int *newLineIndexStack = new int[stackSize];
-        std::copy(lineAfterStack, lineAfterStack + topIndex + 1, newLineStack);
-        std::copy(lineBeforeStack, lineBeforeStack + topIndex + 1, newPrevLineStack);
-        std::copy(lineIndexStack, lineIndexStack + topIndex + 1, newLineIndexStack);
-        delete[] lineAfterStack;
-        delete[] lineBeforeStack;
-        delete[] lineIndexStack;
-        lineAfterStack = newLineStack;
-        lineBeforeStack = newPrevLineStack;
-        lineIndexStack = newLineIndexStack;
+        LineLog* newLogStack = new LineLog[stackSize];
+        std::copy(logStack, logStack + topIndex + 1, newLogStack);
+        delete[] logStack;
+        logStack = newLogStack;
     }
 
     topIndex++;
-    lineBeforeStack[topIndex] = line;
-    lineIndexStack[topIndex] = lineIndex;
+    currentStackSize++;
+    logStack[topIndex].before = Line(line);
+    logStack[topIndex].lineIndex = lineIndex;
 }
 
-void CommandsLog::logAfter(Line line) {
-    lineAfterStack[topIndex] = line;
+void CommandsLog::logAfter(const Line& line) {
+    logStack[topIndex].after = Line(line);
 }
 
-void CommandsLog::undo() {
+void CommandsLog::undo(LinkedList* content) {
     if (topIndex != -1) {
-        int lineIndex = 0;
-        Line *currentLine = content.head;
-        while (lineIndex < lineIndexStack[topIndex] - 1) { // get the line preceding the one to undo
+        int lineIndex = -1;
+        Line *currentLine = new Line();
+        currentLine->next = content->head;
+        while (lineIndex < logStack[topIndex].lineIndex - 1) {
             currentLine = currentLine->next;
             lineIndex++;
         }
 
-        if (lineIndex == 0) { // handle head
-            content.head = &lineBeforeStack[topIndex];
+        // handle newline command
+        if (logStack[topIndex].before.text == nullptr && logStack[topIndex].after.text != nullptr) {
+            delete[] currentLine->next;
+            content->tail = currentLine;
+            content->length--;
+            if (lineIndex == 0)
+                content->head = content->tail;
         } else {
-            currentLine->next = &lineBeforeStack[topIndex];
+            delete[] currentLine->next->text;
+            currentLine->next->text = new char[strlen(logStack[topIndex].before.text) + 1];
+            std::copy(logStack[topIndex].before.text,
+                      logStack[topIndex].before.text + strlen(logStack[topIndex].before.text) + 1, currentLine->next->text);
+            if (lineIndex == 0)
+                content->head->text = currentLine->next->text;
         }
 
         topIndex--;
@@ -55,29 +59,32 @@ void CommandsLog::undo() {
         std::cout << "Nothing to undo.\n";
 }
 
-void CommandsLog::redo() {
-    if (&lineAfterStack[topIndex + 1]) {
+void CommandsLog::redo(LinkedList* content) {
+    if (topIndex + 1 < currentStackSize) {
         topIndex++;
-        int lineIndex = 0;
-        Line *currentLine = content.head;
-        while (lineIndex < lineIndexStack[topIndex] - 1) { // get the line preceding the one to undo
+        int lineIndex = -1;
+        Line *currentLine = new Line();
+        currentLine->next = content->head;
+        while (lineIndex < logStack[topIndex].lineIndex - 1) {
             currentLine = currentLine->next;
             lineIndex++;
         }
 
-        if (lineIndex == 0) { // handle head
-            content.head = &lineAfterStack[topIndex];
-        } else {
-            currentLine->next = &lineAfterStack[topIndex];
+        // redo newline command
+        if (logStack[topIndex].before.text == nullptr && logStack[topIndex].after.text != nullptr)
+            Editor::newLine(content, this, logStack[topIndex].after.text);
+        else {
+            delete[] currentLine->next->text;
+            currentLine->next->text = new char[strlen(logStack[topIndex].after.text) + 1];
+            std::copy(logStack[topIndex].after.text,
+                      logStack[topIndex].after.text + strlen(logStack[topIndex].after.text) + 1, currentLine->next->text);
         }
     } else
         std::cout << "Nothing to redo.\n";
 }
 
-Line CommandsLog::getLineBefore(int index) {
-    return lineBeforeStack[index];
-}
-
-Line CommandsLog::getLineAfter(int index) {
-    return lineAfterStack[index];
+LineLog CommandsLog::getLineLog(int index) {
+    if (index < currentStackSize)
+        return logStack[index];
+    return LineLog {};
 }
