@@ -7,15 +7,14 @@
 
 class Application {
 public:
-    Application() : content(), cmdLog(content), editor(content, cmdLog), buffer(cmdLog)  {}; // Initializer list
+    Application() : content(), buffer(), cmdLog() {}
     static void printCommandsInfo();
     static void clearConsole();
     void executeCommand();
     void run();
-private:
+
     LinkedList content;
     int command;
-    Editor editor;
     Buffer buffer;
     CommandsLog cmdLog;
 };
