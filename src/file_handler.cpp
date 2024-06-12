@@ -2,10 +2,10 @@
 #include "../include/file_handler.h"
 #include "../include/editor.h"
 
-void FileHandler::saveToFile(Editor editor, const char* filename) {
+void FileHandler::saveToFile(LinkedList* content, const char* filename) {
     FILE* file = fopen(filename, "a");
     if (file) {
-        for (Line *currentLine = editor.content.head; currentLine; currentLine = currentLine->next) {
+        for (Line *currentLine = content->head; currentLine; currentLine = currentLine->next) {
             fputs(currentLine->text, file);
             fputc('\n', file); // line end
         }
@@ -18,7 +18,7 @@ void FileHandler::saveToFile(Editor editor, const char* filename) {
     }
 }
 
-void FileHandler::loadFromFile(Editor editor, const char* filename) {
+void FileHandler::loadFromFile(LinkedList* content, CommandsLog* cmdLog, const char* filename) {
     FILE* file = fopen(filename, "r"); // default mode: text
     if (file) {
         char *lineText = nullptr;
@@ -27,7 +27,7 @@ void FileHandler::loadFromFile(Editor editor, const char* filename) {
         while ((length = getline(&lineText, &lineSize, file)) != -1) {
             if (length > 0 && lineText[length - 1] == '\n')
                 lineText[length - 1] = '\0'; // Remove the newline character
-            editor.newLine(lineText);
+            Editor::newLine(content, cmdLog, lineText);
         }
 
         fclose(file);

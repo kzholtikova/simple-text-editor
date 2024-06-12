@@ -32,55 +32,55 @@ void  Application::executeCommand() {
             printCommandsInfo();
             return;
         case 1:
-            editor.appendText(Parser::readText());
+            Editor::appendText(&content, &cmdLog, Parser::readText());
             return;
         case 2:
-            editor.newLine(Parser::readText());
+            Editor::newLine(&content, &cmdLog, Parser::readText());
             return;
         case 3:
-            FileHandler::saveToFile(editor, Parser::readText());
+            FileHandler::saveToFile(&content,Parser::readText());
             return;
         case 4:
-            FileHandler::loadFromFile(editor,Parser::readText());
+            FileHandler::loadFromFile(&content, &cmdLog, Parser::readText());
             return;
         case 5:
-            editor.printText();
+            Editor::printText(&content);
             return;
         case 6:
-            editor.insertBy(Parser::readInteger("Enter a line index: "),
+            Editor::insertBy(&content, &cmdLog,Parser::readInteger("Enter a line index: "),
                              Parser::readInteger("Enter a char index: "), Parser::readText());
             return;
         case 7:
-            editor.replaceBy(Parser::readInteger("Enter a line index: "),
+            Editor::replaceBy(&content, &cmdLog, Parser::readInteger("Enter a line index: "),
                               Parser::readInteger("Enter a char index: "), Parser::readText());
             return;
         case 8:
-            editor.deleteBy(Parser::readInteger("Enter a line index: "),
+            Editor::deleteBy(&content, &cmdLog, Parser::readInteger("Enter a line index: "),
                              Parser::readInteger("Enter a char index: "),
                              Parser::readInteger("Enter a length: "));
             return;
         case 9:
-            editor.search(Parser::readText());
+            Editor::search(&content, Parser::readText());
             return;
         case 10:
-            buffer.cut(editor, Parser::readInteger("Enter a line index: "),
+            buffer.cut(&content, &cmdLog, Parser::readInteger("Enter a line index: "),
                         Parser::readInteger("Enter a char index: "),
                         Parser::readInteger("Enter a length: "));
             return;
         case 11:
-            buffer.copy(editor, Parser::readInteger("Enter a line index: "),
+            buffer.copy(&content, Parser::readInteger("Enter a line index: "),
                          Parser::readInteger("Enter a char index: "),
                          Parser::readInteger("Enter a length: "));
             return;
         case 12:
-            buffer.paste(editor, Parser::readInteger("Enter a line index: "),
+            buffer.paste(&content, &cmdLog, Parser::readInteger("Enter a line index: "),
                           Parser::readInteger("Enter a char index: "));
             return;
         case 13:
-            cmdLog.undo();
+            cmdLog.undo(&content);
             return;
         case 14:
-            cmdLog.redo();
+            cmdLog.redo(&content);
             return;
         case 15: // Exit
             std::cout << "Bye!";
