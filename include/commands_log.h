@@ -2,21 +2,24 @@
 #include <cstddef>
 #include "text_storage.h"
 
+typedef struct LineLog {
+    Line before = nullptr;
+    Line after = nullptr;
+    int lineIndex;
+} LineLog;
+
 class CommandsLog {
 private:
-    LinkedList& content;
-    Line* lineAfterStack;
-    Line* lineBeforeStack;
-    int* lineIndexStack;
+    LineLog* logStack;
     int topIndex;
+    size_t currentStackSize;
     size_t stackSize;
 public:
-    CommandsLog(LinkedList& content);
-    Line getLineBefore(int index);
-    Line getLineAfter(int index);
+    CommandsLog();
+    LineLog getLineLog(int index);
 
-    void logBefore(Line line, int lineIndex);
-    void logAfter(Line line);
-    void undo();
-    void redo();
+    void logBefore(const Line& line, int lineIndex);
+    void logAfter(const Line& line);
+    void undo(LinkedList* content);
+    void redo(LinkedList* content);
 };
