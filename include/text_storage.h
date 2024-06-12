@@ -6,6 +6,7 @@ public:
     Line* next;
 
     Line() {}; // Default constructor
+    Line(const Line& other); // Copy constructor
     Line(const char* userText);
 };
 

@@ -10,6 +10,15 @@ Line::Line(const char* userText) {
     next = nullptr;  // Initialize memory
 }
 
+Line::Line(const Line& other) {
+    text = nullptr;
+    if (other.text) {
+        text = new char[strlen(other.text) + 1];
+        std::copy(other.text, other.text + strlen(other.text), text);
+    }
+    next = nullptr;
+}
+
 LinkedList::LinkedList() {
     head = nullptr;
     tail = nullptr;

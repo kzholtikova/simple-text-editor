@@ -3,18 +3,13 @@
 #include "commands_log.h"
 
 class Editor {
-private:
-    CommandsLog& cmdLog;
 public:
-    LinkedList& content;
-    Editor(LinkedList& content, CommandsLog& cmdLog) : content(content), cmdLog(cmdLog) {};
-
-    void newLine(const char* text);
-    void printText() const;
-    void appendText(const char* text);
-    void search(const char* pattern);
-    void insertBy(int lineIndex, int charIndex, const char* newText);
-    void replaceBy(int lineIndex, int charIndex, const char* newText);
-    void deleteBy(int lineIndex, int charIndex, size_t length);
-    Line* setPosition(int lineIndex, int charIndex);
+    static void newLine(LinkedList* content, CommandsLog* cmdLog, const char* text);
+    static void printText(LinkedList* content);
+    static void appendText(LinkedList* content, CommandsLog* cmdLog, const char* text);
+    static void search(LinkedList* content, const char* pattern);
+    static void insertBy(LinkedList* content, CommandsLog* cmdLog, int lineIndex, int charIndex, const char* newText);
+    static void replaceBy(LinkedList* content, CommandsLog* cmdLog, int lineIndex, int charIndex, const char* newText);
+    static void deleteBy(LinkedList* content, CommandsLog* cmdLog, int lineIndex, int charIndex, size_t length);
+    static Line* setPosition(LinkedList* content, int lineIndex, int charIndex);
 };

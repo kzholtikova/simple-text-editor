@@ -4,22 +4,25 @@
 
 TEST(EditorTest, NewLineAddsLineToEmptyList) {
     LinkedList content;
-    Editor::newLine(&content, "Hello, World!");
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog, "Hello, World!");
     EXPECT_STREQ(content.head->text, "Hello, World!");
     EXPECT_EQ(content.length, 1);
 }
 
 TEST(EditorTest, NewLineAddsLineToNonEmptyList) {
     LinkedList content;
-    Editor::newLine(&content, "Hello, World!");
-    Editor::newLine(&content, "Hello, GitHub Copilot!");
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog, "Hello, World!");
+    Editor::newLine(&content, &cmdLog, "Hello, GitHub Copilot!");
     EXPECT_STREQ(content.tail->text, "Hello, GitHub Copilot!");
     EXPECT_EQ(content.length, 2);
 }
 
 TEST(EditorTest, PrintTextOutputsCorrectly) {
     LinkedList content;
-    Editor::newLine(&content, "Hello, World!");
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog, "Hello, World!");
     testing::internal::CaptureStdout();
     Editor::printText(&content);
     std::string output = testing::internal::GetCapturedStdout();
@@ -28,21 +31,24 @@ TEST(EditorTest, PrintTextOutputsCorrectly) {
 
 TEST(EditorTest, AppendTextToEmptyList) {
     LinkedList content;
-    Editor::appendText(&content, "Hello, World!");
+    CommandsLog cmdLog;
+    Editor::appendText(&content, &cmdLog, "Hello, World!");
     EXPECT_STREQ(content.head->text, "Hello, World!");
     EXPECT_EQ(content.length, 1);
 }
 
 TEST(EditorTest, AppendTextToNonEmptyList) {
     LinkedList content;
-    Editor::newLine(&content, "Hello, ");
-    Editor::appendText(&content, "World!");
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog, "Hello, ");
+    Editor::appendText(&content, &cmdLog, "World!");
     EXPECT_STREQ(content.head->text, "Hello, World!");
 }
 
 TEST(EditorTest, SearchPatternNotFound) {
     LinkedList content;
-    Editor::newLine(&content, "Hello, World!");
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog, "Hello, World!");
     testing::internal::CaptureStdout();
     Editor::search(&content, "GitHub Copilot");
     std::string output = testing::internal::GetCapturedStdout();
@@ -51,7 +57,8 @@ TEST(EditorTest, SearchPatternNotFound) {
 
 TEST(EditorTest, SearchPatternFound) {
     LinkedList content;
-    Editor::newLine(&content, "Hello, GitHub Copilot!");
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog, "Hello, GitHub Copilot!");
     testing::internal::CaptureStdout();
     Editor::search(&content, "GitHub Copilot");
     std::string output = testing::internal::GetCapturedStdout();
@@ -60,17 +67,19 @@ TEST(EditorTest, SearchPatternFound) {
 
 TEST(EditorTest, InsertByInBounds) {
     LinkedList content;
-    Editor::newLine(&content, "Hello, World!");
-    Editor::insertBy(&content, 0, 7, "GitHub Copilot, ");
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog, "Hello, World!");
+    Editor::insertBy(&content, &cmdLog, 0, 7, "GitHub Copilot, ");
     EXPECT_STREQ(content.head->text, "Hello, GitHub Copilot, World!");
 }
 
 TEST(EditorTest, InsertByOutOfBounds) {
     LinkedList content;
-    Editor::newLine(&content, "Hello, World!");
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog, "Hello, World!");
     std::streambuf* cinbuf = redirectCin();  // Redirect std::cin and save the old buffer
     testing::internal::CaptureStderr();
-    Editor::insertBy(&content, 2, 0, "GitHub Copilot, ");
+    Editor::insertBy(&content, &cmdLog, 2, 0, "GitHub Copilot, ");
     std::string output = testing::internal::GetCapturedStderr();
     resetCin(cinbuf);  // Restore the original buffer
     EXPECT_EQ(output, "Line index is out of bounds.");
@@ -78,17 +87,19 @@ TEST(EditorTest, InsertByOutOfBounds) {
 
 TEST(EditorTest, ReplaceByValidIndex) {
     LinkedList content;
-    Editor::newLine(&content, "Hello, World!");
-    Editor::replaceBy(&content, 0, 7, "GitHub Copilot");
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog, "Hello, World!");
+    Editor::replaceBy(&content, &cmdLog, 0, 7, "GitHub Copilot");
     EXPECT_STREQ(content.head->text, "Hello, GitHub Copilot");
 }
 
 TEST(EditorTest, ReplaceByInvalidLineIndex) {
     LinkedList content;
-    Editor::newLine(&content, "Hello, World!");
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog, "Hello, World!");
     std::streambuf* cinbuf = redirectCin();
     testing::internal::CaptureStderr();
-    Editor::replaceBy(&content, 2, 7, "GitHub Copilot");
+    Editor::replaceBy(&content, &cmdLog, 2, 7, "GitHub Copilot");
     std::string output = testing::internal::GetCapturedStderr();
     resetCin(cinbuf);
     EXPECT_EQ(output, "Line index is out of bounds.");
@@ -96,10 +107,11 @@ TEST(EditorTest, ReplaceByInvalidLineIndex) {
 
 TEST(EditorTest, ReplaceByInvalidCharIndex) {
     LinkedList content;
-    Editor::newLine(&content, "Hello, World!");
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog, "Hello, World!");
     std::streambuf* cinbuf = redirectCin();
     testing::internal::CaptureStderr();
-    Editor::replaceBy(&content, 0, 20, "GitHub Copilot");
+    Editor::replaceBy(&content, &cmdLog, 0, 20, "GitHub Copilot");
     std::string output = testing::internal::GetCapturedStderr();
     resetCin(cinbuf);
     EXPECT_EQ(output, "Char index is out of bounds.");
@@ -107,17 +119,19 @@ TEST(EditorTest, ReplaceByInvalidCharIndex) {
 
 TEST(EditorTest, DeleteByValidIndexAndLength) {
     LinkedList content;
-    Editor::newLine(&content, "Hello, World!");
-    Editor::deleteBy(&content, 0, 7, 5);
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog, "Hello, World!");
+    Editor::deleteBy(&content, &cmdLog, 0, 7, 5);
     EXPECT_STREQ(content.head->text, "Hello, !");
 }
 
 TEST(EditorTest, DeleteByInvalidLineIndex) {
     LinkedList content;
-    Editor::newLine(&content, "Hello, World!");
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog, "Hello, World!");
     std::streambuf* cinbuf = redirectCin();
     testing::internal::CaptureStderr();
-    Editor::deleteBy(&content, 2, 7, 5);
+    Editor::deleteBy(&content, &cmdLog, 2, 7, 5);
     std::string output = testing::internal::GetCapturedStderr();
     resetCin(cinbuf);
     EXPECT_EQ(output, "Line index is out of bounds.");
@@ -125,10 +139,11 @@ TEST(EditorTest, DeleteByInvalidLineIndex) {
 
 TEST(EditorTest, DeleteByInvalidCharIndex) {
     LinkedList content;
-    Editor::newLine(&content, "Hello, World!");
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog, "Hello, World!");
     std::streambuf* cinbuf = redirectCin();
     testing::internal::CaptureStderr();
-    Editor::deleteBy(&content, 0, 20, 5);
+    Editor::deleteBy(&content, &cmdLog, 0, 20, 5);
     std::string output = testing::internal::GetCapturedStderr();
     resetCin(cinbuf);
     EXPECT_EQ(output, "Char index is out of bounds.");
@@ -136,7 +151,8 @@ TEST(EditorTest, DeleteByInvalidCharIndex) {
 
 TEST(EditorTest, DeleteByLengthExceedsRemainingCharacters) {
     LinkedList content;
-    Editor::newLine(&content, "Hello, World!");
-    Editor::deleteBy(&content, 0, 7, 20);
+    CommandsLog cmdLog;
+    Editor::newLine(&content, &cmdLog, "Hello, World!");
+    Editor::deleteBy(&content, &cmdLog, 0, 7, 20);
     EXPECT_STREQ(content.head->text, "Hello, ");
 }
