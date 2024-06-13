@@ -2,6 +2,7 @@
 #include <iostream>
 #include "text_storage.h"
 #include "commands_log.h"
+#include "cursor.h"
 
 class Buffer {
 private:
@@ -10,7 +11,7 @@ public:
     Buffer();
 
     char* getClip();
-    void cut(LinkedList* content, CommandsLog* cmdLog, int lineIndex, int charIndex, size_t length);
-    void copy(LinkedList* content, int lineIndex, int charIndex, size_t length);
-    void paste(LinkedList* content, CommandsLog* cmdLog, int lineIndex, int charIndex);
+    void cut(CommandsLog* cmdLog, Cursor c, size_t length);
+    void copy(Cursor c, size_t length);
+    void paste(CommandsLog* cmdLog, Cursor c);
 };

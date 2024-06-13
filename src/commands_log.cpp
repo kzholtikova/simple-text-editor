@@ -9,10 +9,10 @@ CommandsLog::CommandsLog() {
     topIndex = -1;
 }
 
-void CommandsLog::logBefore(const Line& line, int lineIndex) {
+void CommandsLog::logBefore(const char* text, int lineIndex) {
     if (stackSize == topIndex + 1) {
         stackSize *= 2;
-        LineLog* newLogStack = new LineLog[stackSize];
+        auto* newLogStack = new LineLog[stackSize];
         std::copy(logStack, logStack + topIndex + 1, newLogStack);
         delete[] logStack;
         logStack = newLogStack;
@@ -20,15 +20,21 @@ void CommandsLog::logBefore(const Line& line, int lineIndex) {
 
     topIndex++;
     currentStackSize++;
-    logStack[topIndex].before = Line(line);
+    if (text) {
+        logStack[topIndex].before = new char[strlen(text) + 1];
+        std::copy(text, text + strlen(text) + 1, logStack[topIndex].before);
+    }
     logStack[topIndex].lineIndex = lineIndex;
 }
 
-void CommandsLog::logAfter(const Line& line) {
-    logStack[topIndex].after = Line(line);
+void CommandsLog::logAfter(const char* text) {
+    if (text) {
+        logStack[topIndex].after = new char[strlen(text) + 1];
+        std::copy(text, text + strlen(text) + 1, logStack[topIndex].after);
+    }
 }
 
-void CommandsLog::undo(LinkedList* content) {
+void CommandsLog::undo(LinkedList* content, Cursor &c) {
     if (topIndex != -1) {
         int lineIndex = -1;
         Line *currentLine = new Line();
@@ -39,17 +45,18 @@ void CommandsLog::undo(LinkedList* content) {
         }
 
         // handle newline command
-        if (logStack[topIndex].before.text == nullptr && logStack[topIndex].after.text != nullptr) {
+        if (logStack[topIndex].before == nullptr && logStack[topIndex].after != nullptr) {
             delete[] currentLine->next;
             content->tail = currentLine;
             content->length--;
+            c.updateCursor(content->tail, content->length - 1, 0);
             if (lineIndex == 0)
                 content->head = content->tail;
         } else {
             delete[] currentLine->next->text;
-            currentLine->next->text = new char[strlen(logStack[topIndex].before.text) + 1];
-            std::copy(logStack[topIndex].before.text,
-                      logStack[topIndex].before.text + strlen(logStack[topIndex].before.text) + 1, currentLine->next->text);
+            currentLine->next->text = new char[strlen(logStack[topIndex].before) + 1];
+            std::copy(logStack[topIndex].before,
+                      logStack[topIndex].before + strlen(logStack[topIndex].before) + 1, currentLine->next->text);
             if (lineIndex == 0)
                 content->head->text = currentLine->next->text;
         }
@@ -59,7 +66,7 @@ void CommandsLog::undo(LinkedList* content) {
         std::cout << "Nothing to undo.\n";
 }
 
-void CommandsLog::redo(LinkedList* content) {
+void CommandsLog::redo(LinkedList* content, Cursor &c) {
     if (topIndex + 1 < currentStackSize) {
         topIndex++;
         int lineIndex = -1;
@@ -71,13 +78,14 @@ void CommandsLog::redo(LinkedList* content) {
         }
 
         // redo newline command
-        if (logStack[topIndex].before.text == nullptr && logStack[topIndex].after.text != nullptr)
-            Editor::newLine(content, this, logStack[topIndex].after.text);
-        else {
+        if (logStack[topIndex].before == nullptr && logStack[topIndex].after != nullptr) {
+            Editor::newLine(content, nullptr, logStack[topIndex].after);
+            c.updateCursor(content->tail, content->length - 1, 0);
+        } else {
             delete[] currentLine->next->text;
-            currentLine->next->text = new char[strlen(logStack[topIndex].after.text) + 1];
-            std::copy(logStack[topIndex].after.text,
-                      logStack[topIndex].after.text + strlen(logStack[topIndex].after.text) + 1, currentLine->next->text);
+            currentLine->next->text = new char[strlen(logStack[topIndex].after) + 1];
+            std::copy(logStack[topIndex].after,
+                      logStack[topIndex].after + strlen(logStack[topIndex].after) + 1, currentLine->next->text);
         }
     } else
         std::cout << "Nothing to redo.\n";

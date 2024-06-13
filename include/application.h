@@ -4,10 +4,11 @@
 #include "buffer.h"
 #include "commands_log.h"
 #include "editor.h"
+#include "cursor.h"
 
 class Application {
 public:
-    Application() : content(), buffer(), cmdLog() {}
+    Application() : content(), buffer(), cmdLog(), cursor() {}
     static void printCommandsInfo();
     static void clearConsole();
     void executeCommand();
@@ -17,4 +18,5 @@ public:
     int command;
     Buffer buffer;
     CommandsLog cmdLog;
+    Cursor cursor;
 };

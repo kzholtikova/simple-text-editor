@@ -1,10 +1,11 @@
 #pragma once
 #include <cstddef>
 #include "text_storage.h"
+#include "cursor.h"
 
 typedef struct LineLog {
-    Line before = nullptr;
-    Line after = nullptr;
+    char* before = nullptr;
+    char* after = nullptr;
     int lineIndex;
 } LineLog;
 
@@ -18,8 +19,8 @@ public:
     CommandsLog();
     LineLog getLineLog(int index);
 
-    void logBefore(const Line& line, int lineIndex);
-    void logAfter(const Line& line);
-    void undo(LinkedList* content);
-    void redo(LinkedList* content);
+    void logBefore(const char* text, int lineIndex);
+    void logAfter(const char* text);
+    void undo(LinkedList* content, Cursor& cursor);
+    void redo(LinkedList* content, Cursor& cursor);
 };
