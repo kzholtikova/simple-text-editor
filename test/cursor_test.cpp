@@ -69,3 +69,31 @@ TEST(CursorTest, SetCursorDoesNotUpdateWhenCharIndexOutOfBounds) {
     EXPECT_EQ(cursor.getCursorCharIndex(), 0);
     EXPECT_EQ(output, "Char index is out of bounds.");
 }
+
+TEST(CursorTest, MoveCursorRight) {
+    Cursor cursor;
+    Line line;
+    line.text = new char[6];
+    strcpy(line.text, "Hello");
+    cursor.updateCursor(&line, 0, 0);
+
+    cursor.moveCursorRight(3);
+    EXPECT_EQ(cursor.getCursorCharIndex(), 3);
+
+    cursor.moveCursorRight(3);
+    EXPECT_EQ(cursor.getCursorCharIndex(), 5);
+}
+
+TEST(CursorTest, MoveCursorLeft) {
+    Cursor cursor;
+    Line line;
+    line.text = new char[6];
+    strcpy(line.text, "Hello");
+    cursor.updateCursor(&line, 0, 5);
+
+    cursor.moveCursorLeft(3);
+    EXPECT_EQ(cursor.getCursorCharIndex(), 2);
+
+    cursor.moveCursorLeft(3);
+    EXPECT_EQ(cursor.getCursorCharIndex(), 0);
+}

@@ -13,4 +13,6 @@ public:
     int getCursorCharIndex() const;
     void setCursor(LinkedList *content, int lineIdx, int charIdx);
     void updateCursor(Line *tail, int lineIdx, int charIdx);
+    void moveCursorRight(int steps);
+    void moveCursorLeft(int steps);
 };
