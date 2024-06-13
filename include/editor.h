@@ -1,6 +1,7 @@
 #pragma once
 #include "text_storage.h"
 #include "commands_log.h"
+#include "cursor.h"
 
 class Editor {
 public:
@@ -8,8 +9,7 @@ public:
     static void printText(LinkedList* content);
     static void appendText(LinkedList* content, CommandsLog* cmdLog, const char* text);
     static void search(LinkedList* content, const char* pattern);
-    static void insertBy(LinkedList* content, CommandsLog* cmdLog, int lineIndex, int charIndex, const char* newText);
-    static void replaceBy(LinkedList* content, CommandsLog* cmdLog, int lineIndex, int charIndex, const char* newText);
-    static void deleteBy(LinkedList* content, CommandsLog* cmdLog, int lineIndex, int charIndex, size_t length);
-    static Line* setPosition(LinkedList* content, int lineIndex, int charIndex);
+    static void insertText(CommandsLog* cmdLog, Cursor c, const char* newText);
+    static void replaceText(CommandsLog* cmdLog, Cursor c, const char* newText);
+    static void deleteText(CommandsLog* cmdLog, Cursor c, size_t length);
 };

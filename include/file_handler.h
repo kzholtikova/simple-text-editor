@@ -1,6 +1,7 @@
 #pragma once
 #include "text_storage.h"
 #include "commands_log.h"
+#include "cursor.h"
 
 class FileHandler {
 public:
