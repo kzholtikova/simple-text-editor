@@ -7,8 +7,8 @@ void Application::printCommandsInfo() {
               << "1 - Set cursor\n"
               << "2 - Move cursor right\n"
               << "3 - Move cursor left\n"
-              << "5 - Print current text\n"
-              << "6 - New line\n"
+              << "4 - Print current text\n"
+              << "5 - New line\n"
               << "6 - Append to the end\n"
               << "7 - Insert by line and index\n"
               << "8 - Replace by line and index\n"
@@ -100,7 +100,7 @@ void  Application::executeCommand() {
 
 void Application::run() {
     do {
-        command = Parser::readInteger("Choose a command (0-8): ");
+        command = Parser::readInteger("Choose a command (0-18): ");
         clearConsole();
         executeCommand();
     } while (command != 18);  // exit command
