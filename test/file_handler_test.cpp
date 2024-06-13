@@ -5,11 +5,10 @@
 
 TEST(FileHandlerTest, SaveAndLoadEmptyFile) {
     LinkedList content;
-    CommandsLog cmdLog;
     std::streambuf* coutbuf = redirectCout();
     FileHandler::saveToFile(&content, "empty.txt");
     LinkedList loadedContent;
-    FileHandler::loadFromFile(&loadedContent, &cmdLog, "empty.txt");
+    FileHandler::loadFromFile(&loadedContent, nullptr, "empty.txt");
     resetCout(coutbuf);
     EXPECT_EQ(loadedContent.length, 0);
     EXPECT_EQ(loadedContent.head, nullptr);
@@ -17,12 +16,11 @@ TEST(FileHandlerTest, SaveAndLoadEmptyFile) {
 
 TEST(FileHandlerTest, SaveAndLoadFile) {
     LinkedList content;
-    CommandsLog cmdLog;
-    Editor::newLine(&content, &cmdLog, "Hello, World!");
+    Editor::newLine(&content, nullptr, "Hello, World!");
     std::streambuf* coutbuf = redirectCout();
     FileHandler::saveToFile(&content, "hello.txt");
     LinkedList loadedContent;
-    FileHandler::loadFromFile(&loadedContent, &cmdLog, "hello.txt");
+    FileHandler::loadFromFile(&loadedContent, nullptr, "hello.txt");
     resetCout(coutbuf);
     EXPECT_STREQ(loadedContent.head->text, content.head->text);
 }
