@@ -39,7 +39,7 @@ void Cursor::setCursor(LinkedList *content, int lineIdx, int charIdx) {
 
 void Cursor::updateCursor(Line *tail, int lineIdx, int charIdx) {
     this->line = tail;
-    this->lineIndex = lineIdx;
+    lineIdx > 0 ? this->lineIndex = lineIdx : this->lineIndex = 0;
     this->charIndex = charIdx;
 }
 
