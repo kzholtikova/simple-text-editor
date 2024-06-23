@@ -39,7 +39,44 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/cmake-build-debug/
+cmake_ninja_workdir = /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/
+# =============================================================================
+# Object build statements for SHARED_LIBRARY target caesar_cipher
+
+
+#############################################
+# Order-only phony target for caesar_cipher
+
+build cmake_object_order_depends_target_caesar_cipher: phony || CMakeFiles/caesar_cipher.dir
+
+build CMakeFiles/caesar_cipher.dir/src/caesar_cipher.cpp.o: CXX_COMPILER__caesar_cipher_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/src/caesar_cipher.cpp || cmake_object_order_depends_target_caesar_cipher
+  DEFINES = -Dcaesar_cipher_EXPORTS
+  DEP_FILE = CMakeFiles/caesar_cipher.dir/src/caesar_cipher.cpp.o.d
+  FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fPIC -fcolor-diagnostics
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include
+  OBJECT_DIR = CMakeFiles/caesar_cipher.dir
+  OBJECT_FILE_DIR = CMakeFiles/caesar_cipher.dir/src
+
+
+# =============================================================================
+# Link build statements for SHARED_LIBRARY target caesar_cipher
+
+
+#############################################
+# Link the shared library libcaesar_cipher.dylib
+
+build libcaesar_cipher.dylib: CXX_SHARED_LIBRARY_LINKER__caesar_cipher_Debug CMakeFiles/caesar_cipher.dir/src/caesar_cipher.cpp.o
+  ARCH_FLAGS = -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
+  INSTALLNAME_DIR = @rpath/
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = CMakeFiles/caesar_cipher.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  SONAME = libcaesar_cipher.dylib
+  SONAME_FLAG = -install_name
+  TARGET_FILE = libcaesar_cipher.dylib
+  TARGET_PDB = caesar_cipher.dylib.dbg
+
 # =============================================================================
 # Object build statements for EXECUTABLE target simple_text_editor
 
@@ -47,59 +84,75 @@ cmake_ninja_workdir = /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-ed
 #############################################
 # Order-only phony target for simple_text_editor
 
-build cmake_object_order_depends_target_simple_text_editor: phony || CMakeFiles/simple_text_editor.dir
+build cmake_object_order_depends_target_simple_text_editor: phony || cmake_object_order_depends_target_caesar_cipher
 
-build CMakeFiles/simple_text_editor.dir/src/main.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/main.cpp || cmake_object_order_depends_target_simple_text_editor
+build CMakeFiles/simple_text_editor.dir/src/main.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/src/main.cpp || cmake_object_order_depends_target_simple_text_editor
   DEP_FILE = CMakeFiles/simple_text_editor.dir/src/main.cpp.o.d
   FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
 
-build CMakeFiles/simple_text_editor.dir/src/parser.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/parser.cpp || cmake_object_order_depends_target_simple_text_editor
+build CMakeFiles/simple_text_editor.dir/src/parser.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/src/parser.cpp || cmake_object_order_depends_target_simple_text_editor
   DEP_FILE = CMakeFiles/simple_text_editor.dir/src/parser.cpp.o.d
   FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
 
-build CMakeFiles/simple_text_editor.dir/src/text_storage.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/text_storage.cpp || cmake_object_order_depends_target_simple_text_editor
+build CMakeFiles/simple_text_editor.dir/src/text_storage.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/src/text_storage.cpp || cmake_object_order_depends_target_simple_text_editor
   DEP_FILE = CMakeFiles/simple_text_editor.dir/src/text_storage.cpp.o.d
   FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
 
-build CMakeFiles/simple_text_editor.dir/src/editor.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/editor.cpp || cmake_object_order_depends_target_simple_text_editor
+build CMakeFiles/simple_text_editor.dir/src/editor.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/src/editor.cpp || cmake_object_order_depends_target_simple_text_editor
   DEP_FILE = CMakeFiles/simple_text_editor.dir/src/editor.cpp.o.d
   FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
 
-build CMakeFiles/simple_text_editor.dir/src/file_handler.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/file_handler.cpp || cmake_object_order_depends_target_simple_text_editor
+build CMakeFiles/simple_text_editor.dir/src/file_handler.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/src/file_handler.cpp || cmake_object_order_depends_target_simple_text_editor
   DEP_FILE = CMakeFiles/simple_text_editor.dir/src/file_handler.cpp.o.d
   FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
 
-build CMakeFiles/simple_text_editor.dir/src/application.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/application.cpp || cmake_object_order_depends_target_simple_text_editor
+build CMakeFiles/simple_text_editor.dir/src/application.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/src/application.cpp || cmake_object_order_depends_target_simple_text_editor
   DEP_FILE = CMakeFiles/simple_text_editor.dir/src/application.cpp.o.d
   FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
 
-build CMakeFiles/simple_text_editor.dir/src/buffer.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/buffer.cpp || cmake_object_order_depends_target_simple_text_editor
+build CMakeFiles/simple_text_editor.dir/src/buffer.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/src/buffer.cpp || cmake_object_order_depends_target_simple_text_editor
   DEP_FILE = CMakeFiles/simple_text_editor.dir/src/buffer.cpp.o.d
   FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
 
-build CMakeFiles/simple_text_editor.dir/src/commands_log.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/commands_log.cpp || cmake_object_order_depends_target_simple_text_editor
+build CMakeFiles/simple_text_editor.dir/src/commands_log.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/src/commands_log.cpp || cmake_object_order_depends_target_simple_text_editor
   DEP_FILE = CMakeFiles/simple_text_editor.dir/src/commands_log.cpp.o.d
   FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
 
-build CMakeFiles/simple_text_editor.dir/src/cursor.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/cursor.cpp || cmake_object_order_depends_target_simple_text_editor
+build CMakeFiles/simple_text_editor.dir/src/cursor.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/src/cursor.cpp || cmake_object_order_depends_target_simple_text_editor
   DEP_FILE = CMakeFiles/simple_text_editor.dir/src/cursor.cpp.o.d
   FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include
+  OBJECT_DIR = CMakeFiles/simple_text_editor.dir
+  OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
+
+build CMakeFiles/simple_text_editor.dir/src/caesar_cipher.cpp.o: CXX_COMPILER__simple_text_editor_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/src/caesar_cipher.cpp || cmake_object_order_depends_target_simple_text_editor
+  DEP_FILE = CMakeFiles/simple_text_editor.dir/src/caesar_cipher.cpp.o.d
+  FLAGS = -g -std=gnu++11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor.dir/src
 
@@ -111,8 +164,9 @@ build CMakeFiles/simple_text_editor.dir/src/cursor.cpp.o: CXX_COMPILER__simple_t
 #############################################
 # Link the executable simple_text_editor
 
-build simple_text_editor: CXX_EXECUTABLE_LINKER__simple_text_editor_Debug CMakeFiles/simple_text_editor.dir/src/main.cpp.o CMakeFiles/simple_text_editor.dir/src/parser.cpp.o CMakeFiles/simple_text_editor.dir/src/text_storage.cpp.o CMakeFiles/simple_text_editor.dir/src/editor.cpp.o CMakeFiles/simple_text_editor.dir/src/file_handler.cpp.o CMakeFiles/simple_text_editor.dir/src/application.cpp.o CMakeFiles/simple_text_editor.dir/src/buffer.cpp.o CMakeFiles/simple_text_editor.dir/src/commands_log.cpp.o CMakeFiles/simple_text_editor.dir/src/cursor.cpp.o
+build simple_text_editor: CXX_EXECUTABLE_LINKER__simple_text_editor_Debug CMakeFiles/simple_text_editor.dir/src/main.cpp.o CMakeFiles/simple_text_editor.dir/src/parser.cpp.o CMakeFiles/simple_text_editor.dir/src/text_storage.cpp.o CMakeFiles/simple_text_editor.dir/src/editor.cpp.o CMakeFiles/simple_text_editor.dir/src/file_handler.cpp.o CMakeFiles/simple_text_editor.dir/src/application.cpp.o CMakeFiles/simple_text_editor.dir/src/buffer.cpp.o CMakeFiles/simple_text_editor.dir/src/commands_log.cpp.o CMakeFiles/simple_text_editor.dir/src/cursor.cpp.o CMakeFiles/simple_text_editor.dir/src/caesar_cipher.cpp.o | libcaesar_cipher.dylib || libcaesar_cipher.dylib
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
+  LINK_LIBRARIES = -Wl,-rpath,/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug  libcaesar_cipher.dylib  -ldl
   OBJECT_DIR = CMakeFiles/simple_text_editor.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -126,117 +180,131 @@ build simple_text_editor: CXX_EXECUTABLE_LINKER__simple_text_editor_Debug CMakeF
 #############################################
 # Order-only phony target for simple_text_editor_tests
 
-build cmake_object_order_depends_target_simple_text_editor_tests: phony || cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
+build cmake_object_order_depends_target_simple_text_editor_tests: phony || cmake_object_order_depends_target_caesar_cipher cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
 
-build CMakeFiles/simple_text_editor_tests.dir/test/main_test.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/test/main_test.cpp || cmake_object_order_depends_target_simple_text_editor_tests
+build CMakeFiles/simple_text_editor_tests.dir/test/main_test.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/test/main_test.cpp || cmake_object_order_depends_target_simple_text_editor_tests
   DEP_FILE = CMakeFiles/simple_text_editor_tests.dir/test/main_test.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
   OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor_tests.dir/test
 
-build CMakeFiles/simple_text_editor_tests.dir/test/text_storage_test.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/test/text_storage_test.cpp || cmake_object_order_depends_target_simple_text_editor_tests
+build CMakeFiles/simple_text_editor_tests.dir/test/text_storage_test.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/test/text_storage_test.cpp || cmake_object_order_depends_target_simple_text_editor_tests
   DEP_FILE = CMakeFiles/simple_text_editor_tests.dir/test/text_storage_test.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
   OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor_tests.dir/test
 
-build CMakeFiles/simple_text_editor_tests.dir/src/text_storage.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/text_storage.cpp || cmake_object_order_depends_target_simple_text_editor_tests
+build CMakeFiles/simple_text_editor_tests.dir/src/text_storage.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/src/text_storage.cpp || cmake_object_order_depends_target_simple_text_editor_tests
   DEP_FILE = CMakeFiles/simple_text_editor_tests.dir/src/text_storage.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
   OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor_tests.dir/src
 
-build CMakeFiles/simple_text_editor_tests.dir/test/parser_test.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/test/parser_test.cpp || cmake_object_order_depends_target_simple_text_editor_tests
+build CMakeFiles/simple_text_editor_tests.dir/test/parser_test.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/test/parser_test.cpp || cmake_object_order_depends_target_simple_text_editor_tests
   DEP_FILE = CMakeFiles/simple_text_editor_tests.dir/test/parser_test.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
   OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor_tests.dir/test
 
-build CMakeFiles/simple_text_editor_tests.dir/src/parser.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/parser.cpp || cmake_object_order_depends_target_simple_text_editor_tests
+build CMakeFiles/simple_text_editor_tests.dir/src/parser.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/src/parser.cpp || cmake_object_order_depends_target_simple_text_editor_tests
   DEP_FILE = CMakeFiles/simple_text_editor_tests.dir/src/parser.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
   OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor_tests.dir/src
 
-build CMakeFiles/simple_text_editor_tests.dir/test/editor_test.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/test/editor_test.cpp || cmake_object_order_depends_target_simple_text_editor_tests
+build CMakeFiles/simple_text_editor_tests.dir/test/editor_test.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/test/editor_test.cpp || cmake_object_order_depends_target_simple_text_editor_tests
   DEP_FILE = CMakeFiles/simple_text_editor_tests.dir/test/editor_test.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
   OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor_tests.dir/test
 
-build CMakeFiles/simple_text_editor_tests.dir/src/editor.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/editor.cpp || cmake_object_order_depends_target_simple_text_editor_tests
+build CMakeFiles/simple_text_editor_tests.dir/src/editor.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/src/editor.cpp || cmake_object_order_depends_target_simple_text_editor_tests
   DEP_FILE = CMakeFiles/simple_text_editor_tests.dir/src/editor.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
   OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor_tests.dir/src
 
-build CMakeFiles/simple_text_editor_tests.dir/test/file_handler_test.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/test/file_handler_test.cpp || cmake_object_order_depends_target_simple_text_editor_tests
+build CMakeFiles/simple_text_editor_tests.dir/test/file_handler_test.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/test/file_handler_test.cpp || cmake_object_order_depends_target_simple_text_editor_tests
   DEP_FILE = CMakeFiles/simple_text_editor_tests.dir/test/file_handler_test.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
   OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor_tests.dir/test
 
-build CMakeFiles/simple_text_editor_tests.dir/src/file_handler.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/file_handler.cpp || cmake_object_order_depends_target_simple_text_editor_tests
+build CMakeFiles/simple_text_editor_tests.dir/src/file_handler.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/src/file_handler.cpp || cmake_object_order_depends_target_simple_text_editor_tests
   DEP_FILE = CMakeFiles/simple_text_editor_tests.dir/src/file_handler.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
   OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor_tests.dir/src
 
-build CMakeFiles/simple_text_editor_tests.dir/test/buffer_test.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/test/buffer_test.cpp || cmake_object_order_depends_target_simple_text_editor_tests
+build CMakeFiles/simple_text_editor_tests.dir/test/buffer_test.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/test/buffer_test.cpp || cmake_object_order_depends_target_simple_text_editor_tests
   DEP_FILE = CMakeFiles/simple_text_editor_tests.dir/test/buffer_test.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
   OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor_tests.dir/test
 
-build CMakeFiles/simple_text_editor_tests.dir/src/buffer.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/buffer.cpp || cmake_object_order_depends_target_simple_text_editor_tests
+build CMakeFiles/simple_text_editor_tests.dir/src/buffer.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/src/buffer.cpp || cmake_object_order_depends_target_simple_text_editor_tests
   DEP_FILE = CMakeFiles/simple_text_editor_tests.dir/src/buffer.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
   OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor_tests.dir/src
 
-build CMakeFiles/simple_text_editor_tests.dir/test/commands_log_test.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/test/commands_log_test.cpp || cmake_object_order_depends_target_simple_text_editor_tests
+build CMakeFiles/simple_text_editor_tests.dir/test/commands_log_test.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/test/commands_log_test.cpp || cmake_object_order_depends_target_simple_text_editor_tests
   DEP_FILE = CMakeFiles/simple_text_editor_tests.dir/test/commands_log_test.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
   OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor_tests.dir/test
 
-build CMakeFiles/simple_text_editor_tests.dir/src/commands_log.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/commands_log.cpp || cmake_object_order_depends_target_simple_text_editor_tests
+build CMakeFiles/simple_text_editor_tests.dir/src/commands_log.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/src/commands_log.cpp || cmake_object_order_depends_target_simple_text_editor_tests
   DEP_FILE = CMakeFiles/simple_text_editor_tests.dir/src/commands_log.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
   OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor_tests.dir/src
 
-build CMakeFiles/simple_text_editor_tests.dir/test/cursor_test.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/test/cursor_test.cpp || cmake_object_order_depends_target_simple_text_editor_tests
+build CMakeFiles/simple_text_editor_tests.dir/test/cursor_test.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/test/cursor_test.cpp || cmake_object_order_depends_target_simple_text_editor_tests
   DEP_FILE = CMakeFiles/simple_text_editor_tests.dir/test/cursor_test.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
   OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor_tests.dir/test
 
-build CMakeFiles/simple_text_editor_tests.dir/src/cursor.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/cursor.cpp || cmake_object_order_depends_target_simple_text_editor_tests
+build CMakeFiles/simple_text_editor_tests.dir/src/cursor.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/src/cursor.cpp || cmake_object_order_depends_target_simple_text_editor_tests
   DEP_FILE = CMakeFiles/simple_text_editor_tests.dir/src/cursor.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
   OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor_tests.dir/src
 
-build CMakeFiles/simple_text_editor_tests.dir/src/application.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/src/application.cpp || cmake_object_order_depends_target_simple_text_editor_tests
+build CMakeFiles/simple_text_editor_tests.dir/src/application.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/src/application.cpp || cmake_object_order_depends_target_simple_text_editor_tests
   DEP_FILE = CMakeFiles/simple_text_editor_tests.dir/src/application.cpp.o.d
   FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
+  OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/simple_text_editor_tests.dir/src
+
+build CMakeFiles/simple_text_editor_tests.dir/test/caesar_cipher_test.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/test/caesar_cipher_test.cpp || cmake_object_order_depends_target_simple_text_editor_tests
+  DEP_FILE = CMakeFiles/simple_text_editor_tests.dir/test/caesar_cipher_test.cpp.o.d
+  FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
+  OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles/simple_text_editor_tests.dir/test
+
+build CMakeFiles/simple_text_editor_tests.dir/src/caesar_cipher.cpp.o: CXX_COMPILER__simple_text_editor_tests_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/src/caesar_cipher.cpp || cmake_object_order_depends_target_simple_text_editor_tests
+  DEP_FILE = CMakeFiles/simple_text_editor_tests.dir/src/caesar_cipher.cpp.o.d
+  FLAGS = -g -std=gnu++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
   OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
   OBJECT_FILE_DIR = CMakeFiles/simple_text_editor_tests.dir/src
 
@@ -248,9 +316,9 @@ build CMakeFiles/simple_text_editor_tests.dir/src/application.cpp.o: CXX_COMPILE
 #############################################
 # Link the executable simple_text_editor_tests
 
-build simple_text_editor_tests: CXX_EXECUTABLE_LINKER__simple_text_editor_tests_Debug CMakeFiles/simple_text_editor_tests.dir/test/main_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/text_storage_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/text_storage.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/parser_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/parser.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/editor_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/editor.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/file_handler_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/file_handler.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/buffer_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/buffer.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/commands_log_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/commands_log.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/cursor_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/cursor.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/application.cpp.o | lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
+build simple_text_editor_tests: CXX_EXECUTABLE_LINKER__simple_text_editor_tests_Debug CMakeFiles/simple_text_editor_tests.dir/test/main_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/text_storage_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/text_storage.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/parser_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/parser.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/editor_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/editor.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/file_handler_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/file_handler.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/buffer_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/buffer.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/commands_log_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/commands_log.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/cursor_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/cursor.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/application.cpp.o CMakeFiles/simple_text_editor_tests.dir/test/caesar_cipher_test.cpp.o CMakeFiles/simple_text_editor_tests.dir/src/caesar_cipher.cpp.o | lib/libgtest_main.a libcaesar_cipher.dylib lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a libcaesar_cipher.dylib
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
-  LINK_LIBRARIES = lib/libgtest_main.a  lib/libgtest.a
+  LINK_LIBRARIES = -Wl,-rpath,/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug  lib/libgtest_main.a  libcaesar_cipher.dylib  lib/libgtest.a
   OBJECT_DIR = CMakeFiles/simple_text_editor_tests.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -262,7 +330,7 @@ build simple_text_editor_tests: CXX_EXECUTABLE_LINKER__simple_text_editor_tests_
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug" && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -273,7 +341,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug" && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake --regenerate-during-build -S"/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor" -B"/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug"
+  COMMAND = cd /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake --regenerate-during-build -S/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor -B/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -291,7 +359,7 @@ build list_install_components: phony
 # Utility command for install
 
 build CMakeFiles/install.util: CUSTOM_COMMAND all
-  COMMAND = cd "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug" && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -303,7 +371,7 @@ build install: phony CMakeFiles/install.util
 # Utility command for install/local
 
 build CMakeFiles/install/local.util: CUSTOM_COMMAND all
-  COMMAND = cd "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug" && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -315,7 +383,7 @@ build install/local: phony CMakeFiles/install/local.util
 # Utility command for install/strip
 
 build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
-  COMMAND = cd "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug" && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -324,7 +392,7 @@ build install/strip: phony CMakeFiles/install/strip.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# /Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/CMakeLists.txt
+# /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/CMakeLists.txt
 # =============================================================================
 
 
@@ -332,7 +400,7 @@ build install/strip: phony CMakeFiles/install/strip.util
 # Utility command for edit_cache
 
 build cmake-build-debug/googletest/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest" && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -343,7 +411,7 @@ build cmake-build-debug/googletest/edit_cache: phony cmake-build-debug/googletes
 # Utility command for rebuild_cache
 
 build cmake-build-debug/googletest/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest" && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake --regenerate-during-build -S"/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor" -B"/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug"
+  COMMAND = cd /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake --regenerate-during-build -S/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor -B/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -361,7 +429,7 @@ build cmake-build-debug/googletest/list_install_components: phony
 # Utility command for install
 
 build cmake-build-debug/googletest/CMakeFiles/install.util: CUSTOM_COMMAND cmake-build-debug/googletest/all
-  COMMAND = cd "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest" && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -373,7 +441,7 @@ build cmake-build-debug/googletest/install: phony cmake-build-debug/googletest/C
 # Utility command for install/local
 
 build cmake-build-debug/googletest/CMakeFiles/install/local.util: CUSTOM_COMMAND cmake-build-debug/googletest/all
-  COMMAND = cd "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest" && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -385,7 +453,7 @@ build cmake-build-debug/googletest/install/local: phony cmake-build-debug/google
 # Utility command for install/strip
 
 build cmake-build-debug/googletest/CMakeFiles/install/strip.util: CUSTOM_COMMAND cmake-build-debug/googletest/all
-  COMMAND = cd "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest" && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -394,7 +462,7 @@ build cmake-build-debug/googletest/install/strip: phony cmake-build-debug/google
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# /Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/CMakeLists.txt
+# /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/CMakeLists.txt
 # =============================================================================
 
 # =============================================================================
@@ -406,10 +474,10 @@ build cmake-build-debug/googletest/install/strip: phony cmake-build-debug/google
 
 build cmake_object_order_depends_target_gmock: phony || cmake_object_order_depends_target_gtest
 
-build cmake-build-debug/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: CXX_COMPILER__gmock_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googlemock/src/gmock-all.cc || cmake_object_order_depends_target_gmock
+build cmake-build-debug/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: CXX_COMPILER__gmock_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googlemock/src/gmock-all.cc || cmake_object_order_depends_target_gmock
   DEP_FILE = cmake-build-debug/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o.d
   FLAGS = -g -std=c++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics  -DGTEST_HAS_PTHREAD=1
-  INCLUDES = -I"/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googlemock/include" -I"/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googlemock" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googlemock/include -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googlemock -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
   OBJECT_DIR = cmake-build-debug/googletest/googlemock/CMakeFiles/gmock.dir
   OBJECT_FILE_DIR = cmake-build-debug/googletest/googlemock/CMakeFiles/gmock.dir/src
 
@@ -439,10 +507,10 @@ build lib/libgmock.a: CXX_STATIC_LIBRARY_LINKER__gmock_Debug cmake-build-debug/g
 
 build cmake_object_order_depends_target_gmock_main: phony || cmake_object_order_depends_target_gmock cmake_object_order_depends_target_gtest
 
-build cmake-build-debug/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o: CXX_COMPILER__gmock_main_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googlemock/src/gmock_main.cc || cmake_object_order_depends_target_gmock_main
+build cmake-build-debug/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o: CXX_COMPILER__gmock_main_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googlemock/src/gmock_main.cc || cmake_object_order_depends_target_gmock_main
   DEP_FILE = cmake-build-debug/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o.d
   FLAGS = -g -std=c++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics  -DGTEST_HAS_PTHREAD=1
-  INCLUDES = -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googlemock/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googlemock" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  INCLUDES = -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googlemock/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googlemock -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
   OBJECT_DIR = cmake-build-debug/googletest/googlemock/CMakeFiles/gmock_main.dir
   OBJECT_FILE_DIR = cmake-build-debug/googletest/googlemock/CMakeFiles/gmock_main.dir/src
 
@@ -468,7 +536,7 @@ build lib/libgmock_main.a: CXX_STATIC_LIBRARY_LINKER__gmock_main_Debug cmake-bui
 # Utility command for edit_cache
 
 build cmake-build-debug/googletest/googlemock/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googlemock" && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googlemock && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -479,7 +547,7 @@ build cmake-build-debug/googletest/googlemock/edit_cache: phony cmake-build-debu
 # Utility command for rebuild_cache
 
 build cmake-build-debug/googletest/googlemock/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googlemock" && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake --regenerate-during-build -S"/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor" -B"/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug"
+  COMMAND = cd /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googlemock && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake --regenerate-during-build -S/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor -B/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -497,7 +565,7 @@ build cmake-build-debug/googletest/googlemock/list_install_components: phony
 # Utility command for install
 
 build cmake-build-debug/googletest/googlemock/CMakeFiles/install.util: CUSTOM_COMMAND cmake-build-debug/googletest/googlemock/all
-  COMMAND = cd "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googlemock" && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googlemock && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -509,7 +577,7 @@ build cmake-build-debug/googletest/googlemock/install: phony cmake-build-debug/g
 # Utility command for install/local
 
 build cmake-build-debug/googletest/googlemock/CMakeFiles/install/local.util: CUSTOM_COMMAND cmake-build-debug/googletest/googlemock/all
-  COMMAND = cd "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googlemock" && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googlemock && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -521,7 +589,7 @@ build cmake-build-debug/googletest/googlemock/install/local: phony cmake-build-d
 # Utility command for install/strip
 
 build cmake-build-debug/googletest/googlemock/CMakeFiles/install/strip.util: CUSTOM_COMMAND cmake-build-debug/googletest/googlemock/all
-  COMMAND = cd "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googlemock" && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googlemock && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -530,7 +598,7 @@ build cmake-build-debug/googletest/googlemock/install/strip: phony cmake-build-d
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# /Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googlemock/CMakeLists.txt
+# /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googlemock/CMakeLists.txt
 # =============================================================================
 
 # =============================================================================
@@ -542,10 +610,10 @@ build cmake-build-debug/googletest/googlemock/install/strip: phony cmake-build-d
 
 build cmake_object_order_depends_target_gtest: phony || cmake-build-debug/googletest/googletest/CMakeFiles/gtest.dir
 
-build cmake-build-debug/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o: CXX_COMPILER__gtest_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
+build cmake-build-debug/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o: CXX_COMPILER__gtest_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
   DEP_FILE = cmake-build-debug/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o.d
   FLAGS = -g -std=c++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics  -DGTEST_HAS_PTHREAD=1
-  INCLUDES = -I"/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -I"/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
   OBJECT_DIR = cmake-build-debug/googletest/googletest/CMakeFiles/gtest.dir
   OBJECT_FILE_DIR = cmake-build-debug/googletest/googletest/CMakeFiles/gtest.dir/src
 
@@ -575,10 +643,10 @@ build lib/libgtest.a: CXX_STATIC_LIBRARY_LINKER__gtest_Debug cmake-build-debug/g
 
 build cmake_object_order_depends_target_gtest_main: phony || cmake_object_order_depends_target_gtest
 
-build cmake-build-debug/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: CXX_COMPILER__gtest_main_unscanned_Debug /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
+build cmake-build-debug/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: CXX_COMPILER__gtest_main_unscanned_Debug /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
   DEP_FILE = cmake-build-debug/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.d
   FLAGS = -g -std=c++14 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics  -DGTEST_HAS_PTHREAD=1
-  INCLUDES = -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include" -isystem "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest"
+  INCLUDES = -I/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest/include -isystem /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/googletest/googletest
   OBJECT_DIR = cmake-build-debug/googletest/googletest/CMakeFiles/gtest_main.dir
   OBJECT_FILE_DIR = cmake-build-debug/googletest/googletest/CMakeFiles/gtest_main.dir/src
 
@@ -604,7 +672,7 @@ build lib/libgtest_main.a: CXX_STATIC_LIBRARY_LINKER__gtest_main_Debug cmake-bui
 # Utility command for edit_cache
 
 build cmake-build-debug/googletest/googletest/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googletest" && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -615,7 +683,7 @@ build cmake-build-debug/googletest/googletest/edit_cache: phony cmake-build-debu
 # Utility command for rebuild_cache
 
 build cmake-build-debug/googletest/googletest/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googletest" && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake --regenerate-during-build -S"/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor" -B"/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug"
+  COMMAND = cd /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake --regenerate-during-build -S/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor -B/Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -633,7 +701,7 @@ build cmake-build-debug/googletest/googletest/list_install_components: phony
 # Utility command for install
 
 build cmake-build-debug/googletest/googletest/CMakeFiles/install.util: CUSTOM_COMMAND cmake-build-debug/googletest/googletest/all
-  COMMAND = cd "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googletest" && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -P cmake_install.cmake
+  COMMAND = cd /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -645,7 +713,7 @@ build cmake-build-debug/googletest/googletest/install: phony cmake-build-debug/g
 # Utility command for install/local
 
 build cmake-build-debug/googletest/googletest/CMakeFiles/install/local.util: CUSTOM_COMMAND cmake-build-debug/googletest/googletest/all
-  COMMAND = cd "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googletest" && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -657,7 +725,7 @@ build cmake-build-debug/googletest/googletest/install/local: phony cmake-build-d
 # Utility command for install/strip
 
 build cmake-build-debug/googletest/googletest/CMakeFiles/install/strip.util: CUSTOM_COMMAND cmake-build-debug/googletest/googletest/all
-  COMMAND = cd "/Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googletest" && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googletest && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -666,6 +734,8 @@ build cmake-build-debug/googletest/googletest/install/strip: phony cmake-build-d
 
 # =============================================================================
 # Target aliases.
+
+build caesar_cipher: phony libcaesar_cipher.dylib
 
 build gmock: phony lib/libgmock.a
 
@@ -689,28 +759,28 @@ build libgtest_main.a: phony lib/libgtest_main.a
 # =============================================================================
 
 #############################################
-# Folder: /Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug
+# Folder: /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug
 
-build all: phony simple_text_editor simple_text_editor_tests cmake-build-debug/googletest/all
+build all: phony libcaesar_cipher.dylib simple_text_editor simple_text_editor_tests cmake-build-debug/googletest/all
 
 # =============================================================================
 
 #############################################
-# Folder: /Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest
+# Folder: /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest
 
 build cmake-build-debug/googletest/all: phony cmake-build-debug/googletest/googlemock/all
 
 # =============================================================================
 
 #############################################
-# Folder: /Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googlemock
+# Folder: /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googlemock
 
 build cmake-build-debug/googletest/googlemock/all: phony lib/libgmock.a lib/libgmock_main.a cmake-build-debug/googletest/googletest/all
 
 # =============================================================================
 
 #############################################
-# Folder: /Users/owner/Storage/KSE/IT Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googletest
+# Folder: /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/cmake-build-debug/cmake-build-debug/googletest/googletest
 
 build cmake-build-debug/googletest/googletest/all: phony lib/libgtest.a lib/libgtest_main.a
 
@@ -721,14 +791,14 @@ build cmake-build-debug/googletest/googletest/all: phony lib/libgtest.a lib/libg
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeDependentOption.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakePackageConfigHelpers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CheckIncludeFile.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CheckLibraryExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindThreads.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/WriteBasicConfigVersionFile.cmake /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake googletest/CMakeLists.txt googletest/googlemock/CMakeLists.txt googletest/googlemock/cmake/gmock.pc.in googletest/googlemock/cmake/gmock_main.pc.in googletest/googletest/CMakeLists.txt googletest/googletest/cmake/Config.cmake.in googletest/googletest/cmake/gtest.pc.in googletest/googletest/cmake/gtest_main.pc.in googletest/googletest/cmake/internal_utils.cmake
+build build.ninja: RERUN_CMAKE | /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeDependentOption.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakePackageConfigHelpers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CheckIncludeFile.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CheckLibraryExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindThreads.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/WriteBasicConfigVersionFile.cmake /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake googletest/CMakeLists.txt googletest/googlemock/CMakeLists.txt googletest/googlemock/cmake/gmock.pc.in googletest/googlemock/cmake/gmock_main.pc.in googletest/googletest/CMakeLists.txt googletest/googletest/cmake/Config.cmake.in googletest/googletest/cmake/gtest.pc.in googletest/googletest/cmake/gtest_main.pc.in googletest/googletest/cmake/internal_utils.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeDependentOption.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakePackageConfigHelpers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CheckIncludeFile.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CheckLibraryExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindThreads.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/WriteBasicConfigVersionFile.cmake /Users/owner/Storage/KSE/IT$ Disciplines/PP/simple-text-editor/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake googletest/CMakeLists.txt googletest/googlemock/CMakeLists.txt googletest/googlemock/cmake/gmock.pc.in googletest/googlemock/cmake/gmock_main.pc.in googletest/googletest/CMakeLists.txt googletest/googletest/cmake/Config.cmake.in googletest/googletest/cmake/gtest.pc.in googletest/googletest/cmake/gtest_main.pc.in googletest/googletest/cmake/internal_utils.cmake: phony
+build /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeDependentOption.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakePackageConfigHelpers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CheckIncludeFile.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CheckLibraryExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindThreads.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/WriteBasicConfigVersionFile.cmake /Users/owner/Storage/KSE/IT-Disciplines/PP/simple-text-editor/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake googletest/CMakeLists.txt googletest/googlemock/CMakeLists.txt googletest/googlemock/cmake/gmock.pc.in googletest/googlemock/cmake/gmock_main.pc.in googletest/googletest/CMakeLists.txt googletest/googletest/cmake/Config.cmake.in googletest/googletest/cmake/gtest.pc.in googletest/googletest/cmake/gtest_main.pc.in googletest/googletest/cmake/internal_utils.cmake: phony
 
 
 #############################################

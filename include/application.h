@@ -5,10 +5,11 @@
 #include "commands_log.h"
 #include "editor.h"
 #include "cursor.h"
+#include "caesar_cipher.h"
 
 class Application {
 public:
-    Application() : content(), buffer(), cmdLog(), cursor() {}
+    Application() : content(), buffer(), cmdLog(), cursor(), cipher() {}
     static void printCommandsInfo();
     static void clearConsole();
     void executeCommand();
@@ -19,4 +20,5 @@ public:
     Buffer buffer;
     CommandsLog cmdLog;
     Cursor cursor;
+    CaesarCipher cipher;
 };
