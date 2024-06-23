@@ -101,5 +101,5 @@ void CommandsLog::redo(LinkedList* content, Cursor &c) {
 LineLog CommandsLog::getLineLog(int index) {
     if (index < currentStackSize)
         return logStack[index];
-    return LineLog {};
+    return LineLog();
 }
