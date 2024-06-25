@@ -4,7 +4,7 @@
 #include "../include/editor.h"
 #include "main_test.h"
 
-TEST(CaesarCipher, EncryptDecryptText) {
+TEST(CaesarCipherTest, EncryptDecryptText) {
     CaesarCipher cipher;
     auto* content = new LinkedList();
     Editor::newLine(content, nullptr, "hello!");
@@ -31,7 +31,7 @@ TEST(CaesarCipherTest, EncryptDecryptMultipleLines) {
     EXPECT_STREQ(content->tail->text, "line3.");
 }
 
-TEST(CaesarCipher, EncryptDecryptEmptyText) {
+TEST(CaesarCipherTest, EncryptDecryptEmptyText) {
     CaesarCipher cipher;
     auto* content = new LinkedList();
     Editor::newLine(content, nullptr, "");
@@ -42,7 +42,7 @@ TEST(CaesarCipher, EncryptDecryptEmptyText) {
     delete content;
 }
 
-TEST(CaesarCipher, EncryptDecryptTextWithZeroKey) {
+TEST(CaesarCipherTest, EncryptDecryptTextWithZeroKey) {
     CaesarCipher cipher;
     auto* content = new LinkedList();
     Editor::newLine(content, nullptr, "hello!");
@@ -53,7 +53,7 @@ TEST(CaesarCipher, EncryptDecryptTextWithZeroKey) {
     delete content;
 }
 
-TEST(CaesarCipher, EncryptDecryptTextWithBigKey) {
+TEST(CaesarCipherTest, EncryptDecryptTextWithBigKey) {
     CaesarCipher cipher;
     auto* content = new LinkedList();
     Editor::newLine(content, nullptr, "hello!");
@@ -64,7 +64,7 @@ TEST(CaesarCipher, EncryptDecryptTextWithBigKey) {
     delete content;
 }
 
-TEST(CaesarCipher, EncryptDecryptFile) {
+TEST(CaesarCipherTest, EncryptDecryptFile) {
     CaesarCipher cipher;
     const char* filename = "test.txt";
     std::ofstream file(filename);
@@ -77,7 +77,7 @@ TEST(CaesarCipher, EncryptDecryptFile) {
     EXPECT_STREQ(content.c_str(), "hello!");
 }
 
-TEST(CaesarCipher, EncryptDecryptEmptyFile) {
+TEST(CaesarCipherTest, EncryptDecryptEmptyFile) {
     CaesarCipher cipher;
     const char* filename = "test.txt";
     std::ofstream file(filename);
@@ -90,7 +90,7 @@ TEST(CaesarCipher, EncryptDecryptEmptyFile) {
     EXPECT_STREQ(content.c_str(), "");
 }
 
-TEST(CaesarCipher, EncryptDecryptNonExistingFile) {
+TEST(CaesarCipherTest, EncryptDecryptNonExistingFile) {
     CaesarCipher cipher;
     std::streambuf* cinbuf = redirectCin();
     testing::internal::CaptureStderr();
