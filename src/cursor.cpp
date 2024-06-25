@@ -45,12 +45,12 @@ void Cursor::updateCursor(Line *tail, int lineIdx, int charIdx) {
 
 void Cursor::moveCursorRight(int steps) {
     charIndex += steps;
-    if (charIndex > strlen(line->text))
+    if (line && charIndex > strlen(line->text))
         charIndex = strlen(line->text);
 }
 
 void Cursor::moveCursorLeft(int steps) {
     charIndex -= steps;
-    if (charIndex < 0)
+    if (line && charIndex < 0)
         charIndex = 0;
 }
