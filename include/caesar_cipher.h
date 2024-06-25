@@ -14,4 +14,7 @@ private:
     void* handle;
     char* (*encrypt)(const char*, int);
     char* (*decrypt)(const char*, int);
+
+    void processText(LinkedList* content, int key, char* (*function)(const char*, int));
+    void processFile(const char* filename, int key, char* (*function)(const char*, int));
 };
