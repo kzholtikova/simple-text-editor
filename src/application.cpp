@@ -109,7 +109,7 @@ void  Application::executeCommand() {
 
 void Application::run() {
     do {
-        command = Parser::readInteger("Choose a command (0-18): ");
+        command = Parser::readInteger("Choose a command (0-22): ");
         clearConsole();
         executeCommand();
     } while (command != EXIT_COMMAND);
