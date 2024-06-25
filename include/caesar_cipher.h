@@ -8,6 +8,8 @@ public:
 
     void encryptText(LinkedList* content, int key);
     void decryptText(LinkedList* content, int key);
+    void encryptFile(const char* filename, int key);
+    void decryptFile(const char* filename, int key);
 private:
     void* handle;
     char* (*encrypt)(const char*, int);
